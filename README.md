@@ -3,7 +3,7 @@
 
 This repository contains R code and Jupyter notebooks to replicate the estimation, figures, and tables for the working paper.
 
-[Munro, Evan. "Markov Models for Multinomial Time Series". 2018.](www.evanmunro.ca/files/discreteTS.pdf)
+[Munro, Evan. "Markov Models for Multinomial Time Series". 2018.](http://www.evanmunro.ca/files/discreteTS.pdf)
 
 #### 1. Install software
 
