@@ -1,9 +1,9 @@
-### Estimation, Figures, and Tables for "Markov Models for Multinomial Time Series"
+### Estimation, Figures, and Tables for "Dynamic Hierarchical Latent Variable Models for Categorical Survey Data"
 #### Author: Evan Munro
 
 This repository contains R code and Jupyter notebooks to replicate the estimation, figures, and tables for the working paper.
 
-[Munro, Evan. "Markov Models for Multinomial Time Series". 2018.](http://www.evanmunro.ca/files/discreteTS.pdf)
+[Munro, Evan and Serena Ng. "Dynamic Hierarchical Latent Variable Models for Categorical Survey Data". 2019.](http://www.evanmunro.ca/files/munro_ng_2019.pdf)
 
 #### 1. Install software
 
@@ -19,6 +19,8 @@ ggplot2,
 ```
 
 #### 2. Download data
+
+The cleaned DHS data is available by request from the authors.
 
 The Michigan survey response data is available for download at the [Survey of Consumers SDA Archive](https://data.sca.isr.umich.edu/sda-public/cgi-bin/hsda?harcsda+sca) and then clicking Download -> Customized Subset. Then, enter the following variables in the "Individual Variables" box and download as a CSV:
 
@@ -38,5 +40,3 @@ The GPSS data is not public. The raw data used for this paper is available for S
 #### 3. Run Jupyter Notebooks
 
 Documentation and code for data cleaning, model estimation, and figure plotting are included in the two Jupyter notebooks in the repository. Executing the notebooks requires [installing](https://jupyter.readthedocs.io/en/latest/install.html) Jupyter, and [installing](https://github.com/IRkernel/IRkernel) the R kernel for Jupyter. The Jupyter installation also requires a current Python installation.
-
-If there are issues with the Jupyter installation, the code contents of the notebook are also included as regular R scripts in the repository.
