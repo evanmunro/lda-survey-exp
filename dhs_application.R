@@ -26,9 +26,15 @@ data.fprit[,polyt] <- apply(data.fprit[,polyt],MARGIN=2,FUN=as.factor)
 data.fprit <- model.matrix(~.-1,data=data.fprit[,index.vars])
 
 fprit <- prcomp(data.fprit,center=TRUE,scale.=TRUE)
-data.subset$fprit = -fprit$x[,1]
-data.subset$fprit = (data.subset$fprit - min(data.subset$fprit))/(max(data.subset$fprit)-min(data.subset$fprit))
 summary(fprit)
+for (k in 1:K) { 
+  data.subset$fprit = fprit$x[,k]
+  #data.subset$fprit = (data.subset$fprit - min(data.subset$fprit))/(max(data.subset$fprit)-min(data.subset$fprit))
+  indexes <- data.subset %>%
+    group_by(cname) %>%
+    summarize(fprit=mean(fprit))
+  print(indexes)
+} 
 
 indexes <- data.subset %>%
   group_by(cname) %>%
@@ -59,7 +65,7 @@ burn=100
 skip=10
 posterior <- hlcModel(data.input,group.input,eta,alpha,steps,burn,skip)
 post.ev <- posteriorMeans(posterior)
-plotBetas(post.ev$beta)
+plotBetas(post.ev$beta,questions=colnames(data.input))
 
 pi = as.data.frame(post.ev$pi) 
 rownames(pi) = unique(data.subset$cname)

@@ -6,17 +6,17 @@ na.codes <- c(0,8,9,98,99)
 
 data <- read.csv(data_dir)
 
-#check which variables are not available in the first year: 
-na_pct <- function(x) { 
-  return(sum(is.na(x))/length(x)) 
+#check which variables are not available in the first year:
+na_pct <- function(x) {
+  return(sum(is.na(x))/length(x))
 }
 
-na.pcts <- apply(first_mo,MARGIN=2,FUN=na_pct) 
+na.pcts <- apply(data,MARGIN=2,FUN=na_pct)
 n.opts <- apply(data,MARGIN=2,FUN=function(x) return(length(unique(x))))
 
 full.sample.cols <- colnames(data)[na.pcts<0.5]
 candidate.cols <-colnames(data)[na.pcts<0.5&n.opts <25]
-dem.cols <- c("BIRTHM","REGION","SEX","MARRY","NUMKID","NUMADT","EDUC","ECLGRD","EHSGRD","EGRADE","INCQFM") 
+dem.cols <- c("BIRTHM","REGION","SEX","MARRY","NUMKID","NUMADT","EDUC","ECLGRD","EHSGRD","EGRADE","INCQFM")
 ics.cols = c("ICS","ICC","ICE")
 
 questions <- candidate.cols[!candidate.cols%in% c(dem.cols,ics.cols)]
@@ -25,7 +25,7 @@ print(questions)
 data.idx <- data[,questions]
 apply(data.idx,MARGIN=2,FUN=unique)
 date_var <- "YYYYMM"
-orig_idx <- "ICS" 
+orig_idx <- "ICS"
 
 data.for.input <- clean_data(data.idx,na.codes)
 groups.input <- as.numeric(factor(data$YYYYMM))
@@ -35,13 +35,13 @@ L = apply(data.for.input,MARGIN=2,FUN=function(x) return(length(unique(x))))
 
 K = 4
 
-eta= list() 
-for(j in 1:J) { 
+eta= list()
+for(j in 1:J) {
   eta[[j]] = matrix(0.1,nrow=K,ncol=L[j])
-  for(k in 1:K) { 
+  for(k in 1:K) {
     if ( k <= L[j]) {
       eta[[j]][k,k] = 1
-    } 
+    }
   }
 }
 
@@ -52,18 +52,42 @@ burn = 100
 skip = 10
 tune=0.01
 
-load(file="~/Documents/Data/Michigan/Index_K_2.Rdata")
+load(file="~/Documents/Data/Michigan/K_4_Index.Rdata")
 posterior = dhlcModel(data.for.input,groups.input,eta,v0,s0,tune,K,steps,burn,skip)
 save(posterior,file="K_4_Index.Rdata")
 
-dates <- paste(unique(data$YYYYMM),"01",sep="") 
+load(file="~/Documents/Data/Michigan/K_4_Index.Rdata")
+
+#first figure for pi
+dates <- paste(unique(data$YYYYMM),"01",sep="")
 dates <- as.Date(dates,"%Y%m%d")
 post.ev <- posteriorMeans(posterior)
-plotPis(post.ev$pi,dates) 
-plotBetas(post.ev$beta)
-plotWithDatesandR(data.frame(date=dates,toplot=post.ev$pi[,1]),lab="Probability Index")
+umcsent <- read.csv("~/Documents/Data/Michigan/UMCSENT.csv")
+umcsent <- (umcsent$UMCSENT - min(umcsent$UMCSENT))/(max(umcsent$UMCSENT)- min(umcsent$UMCSENT))*max(post.ev$pi[,1])
+data.plot1 <- data.frame(dates = dates,index_1=post.ev$pi[,1],ics =umcsent )
+plotPis(data.plot1,T)
 
-#sentiment vs education and income 
+#second figure for pi
+unrate <- read.csv("~/Documents/Data/Michigan/UNRATE.csv")
+epu <- read.csv("~/Documents/Data/Michigan/epu.csv")
+epu <- epu$epu
+epu <- (epu - min(epu))/(max(epu)-min(epu))*max(post.ev$pi[,4])
+pi3.short <- post.ev$pi[1:length(epu),3]
+pi4.short <- post.ev$pi[1:length(epu),4]
+dates.short <- dates[1:length(epu)]
+unrate <- unrate$UNRATE[1:length(epu)]
+unrate <- (unrate - min(unrate))/(max(unrate)-min(unrate))*max(pi4.short)
+
+
+data.plot2 <- data.frame(dates=dates.short,index_4 = pi4.short,epu=epu)
+
+data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short,unemp=unrate)
+plotPis(data.plot3,T)
+#plotPis(post.ev$pi,dates)
+plotBetas(post.ev$beta)
+#plotWithDatesandR(data.frame(date=dates,toplot=post.ev$pi[,1]),lab="Probability Index")
+
+#sentiment vs education and income
 
 na.obs<- is.na(data$EDUC) | is.na(data$INCOME)
 educ.z.counts <- table(data$EDUC,post.ev$z_assign)
@@ -74,17 +98,11 @@ ggplot(df,aes(x=y,group=z,fill=z))+
   geom_histogram(position="dodge2",bins=10)+theme_bw()
 
 sp500 <- read.csv("~/Documents/Data/Michigan/sp500_shiller.csv")
-unrate <- read.csv("~/Documents/Data/Michigan/UNRATE.csv")
-epu <- read.csv("~/Documents/Data/Michigan/epu.csv")
-epu <- (epu - min(epu))/(max(epu)-min(epu))
-epu <- epu$epu
-pi2.short <- post.ev$pi[1:length(epu),2]
-dates.short <- dates[1:length(epu)]
-unrate <- unrate$UNRATE[1:length(epu)]
+
 sp500 <- (sp500$SP500[2:length(sp500$SP500)] - sp500$SP500[1:(length(sp500$SP500)-1)])/sp500$SP500[1:(length(sp500$SP500)-1)]
 sp500 <- sp500[1:length(epu)]
 short.data = data.frame(dates=unique(data$YYYYMM[1:length(epu)]),epu=epu,sp500=sp500,unrate=unrate)
-long.data = data.frame(dates=data$YYYYMM,z_prob = post.ev$z_prob[,1],educ=factor(data$EDUC))
+long.data = data.frame(dates=data$YYYYMM,z_prob = post.ev$z_prob[,4],educ=factor(data$EDUC))
 long.data = long.data[!is.na(long.data$educ),]
 
 educ_index<- aggregate(long.data,by=list(long.data$educ,long.data$dates),FUN=mean)
@@ -101,13 +119,18 @@ reg.low.data <- data.frame(dates=dates.short,low_educ_index=low_educ_index[1:len
 summary(lm(high_educ_index~sp500+unrate+epu,data=reg.high.data))
 summary(lm(low_educ_index~sp500+unrate+epu,data=reg.low.data))
 
-
-#see how unemployment vs news  predicts profile probabilities 
-#for educated vs uneducated, or high vs low income people 
+stargazer(lm(low_educ_index~sp500+unrate+epu,data=reg.low.data), lm(high_educ_index~sp500+unrate+epu,data=reg.high.data))
 
 
 
-#save some data for serena 
+#see how unemployment vs news  predicts profile probabilities
+#for educated vs uneducated, or high vs low income people
+
+
+
+#save some data for serena
+
+input.data <- read.csv("~/Dropbox/evan/results/Michigan/mich_PCA.csv")
 
 factored.data <- apply(data.for.input,MARGIN=2,FUN=factor)
 dummy.vars <- model.matrix(~.,data.frame(factored.data))
