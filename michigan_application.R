@@ -27,39 +27,67 @@ apply(data.idx,MARGIN=2,FUN=unique)
 date_var <- "YYYYMM"
 orig_idx <- "ICS"
 
+vars <- c("PAGO", "PEXP","RINC","BAGO","BEXP","BUS12","BUS5","UNEMP","GOVT", "RATEX","PX1Q1","DUR","HOM","CAR") 
 data.for.input <- clean_data(data.idx,na.codes)
+data.for.input <- data.for.input[,vars]
 groups.input <- as.numeric(factor(data$YYYYMM))
-
+N= nrow(data.for.input)
 J=ncol(data.for.input)
 L = apply(data.for.input,MARGIN=2,FUN=function(x) return(length(unique(x))))
 
-K = 4
+print("starting")
+for (K in 2:8) {
 
-eta= list()
-for(j in 1:J) {
-  eta[[j]] = matrix(0.1,nrow=K,ncol=L[j])
-  for(k in 1:K) {
-    if ( k <= L[j]) {
-      eta[[j]][k,k] = 1
+  eta= list()
+  for(j in 1:J) {
+    eta[[j]] = matrix(0.1,nrow=K,ncol=L[j])
+    for(k in 1:K) {
+      if ( k <= L[j]) {
+       eta[[j]][k,k] = 1
+     }
     }
   }
+
+  v0=10
+  s0=1
+  steps = 1000
+  burn = 100
+  skip = 10
+  tune=0.01
+
+  posterior = dhlcModel(data.for.input,groups.input,eta,v0,s0,tune,K,steps,burn,skip)
+
+  filenm = paste("~/Documents/Data/Michigan/K_",K,"_Index2.Rdata",sep="")
+  save(posterior,file=filenm)
+  #load(file="~/Documents/Data/Michigan/K_5_Index.Rdata")
+  #posterior$likelihood <- calculateLikelihood(posterior,data.for.input-1)
+  post.ev <- posteriorMeans(posterior)
+  print(K)
+  print(bic(data.for.input,groups.input,post.ev$pi,post.ev$beta,dynamic=T))
 }
 
-v0=10
-s0=1
-steps = 1000
-burn = 100
-skip = 10
-tune=0.01
+for(K in 2:8) {
+  filenm = paste("~/Documents/Data/Michigan/K_",K,"_IndexNew.Rdata",sep="")
+  load(filenm)
+  post.ev <- posteriorMeans(posterior)
+  print(K)
+  print(bic(data.for.input,groups.input,post.ev$pi,post.ev$beta,dynamic=T))
+  
+}
+
+Y <-xtoAdjacency(data.for.input,groups.input)
+
+#K=6: 18761.09 
+#K=5: 15074.7 
+#K=4: 
+#K=3: 
+#K=2: 
 
 load(file="~/Documents/Data/Michigan/K_4_Index.Rdata")
-posterior = dhlcModel(data.for.input,groups.input,eta,v0,s0,tune,K,steps,burn,skip)
-save(posterior,file="K_4_Index.Rdata")
-
-load(file="~/Documents/Data/Michigan/K_4_Index.Rdata")
-
+  
 #first figure for pi
 dates <- paste(unique(data$YYYYMM),"01",sep="")
+
 dates <- as.Date(dates,"%Y%m%d")
 post.ev <- posteriorMeans(posterior)
 umcsent <- read.csv("~/Documents/Data/Michigan/UMCSENT.csv")
@@ -71,16 +99,17 @@ plotPis(data.plot1,T)
 unrate <- read.csv("~/Documents/Data/Michigan/UNRATE.csv")
 epu <- read.csv("~/Documents/Data/Michigan/epu.csv")
 epu <- epu$epu
-epu <- (epu - min(epu))/(max(epu)-min(epu))*max(post.ev$pi[,4])
+
 pi3.short <- post.ev$pi[1:length(epu),3]
 pi4.short <- post.ev$pi[1:length(epu),4]
 dates.short <- dates[1:length(epu)]
 unrate <- unrate$UNRATE[1:length(epu)]
-unrate <- (unrate - min(unrate))/(max(unrate)-min(unrate))*max(pi4.short)
+unrate <- (unrate - mean(unrate))/sd(unrate)*sd(pi3.short)+mean(pi3.short)
+epu <- (epu - mean(epu))/sd(epu)*sd(pi4.short)+mean(pi4.short)
 
 
 data.plot2 <- data.frame(dates=dates.short,index_4 = pi4.short,epu=epu)
-
+plotPis(data.plot2,T)
 data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short,unemp=unrate)
 plotPis(data.plot3,T)
 #plotPis(post.ev$pi,dates)
@@ -143,5 +172,8 @@ which.rows.na <- apply(data.for.input,MARGIN=1,FUN=function(x){return(sum(x==na.
 mich_PCA <- data.frame(data.for.input[which.rows.na,])
 mich_PCA$Time <- data$YYYYMM[which.rows.na]
 
-
-
+#K_2: 28
+#K_3: 27
+#K_4: 26.61
+#K_5: 26.6 
+#K_6: 27.86 

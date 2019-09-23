@@ -65,6 +65,8 @@ burn=100
 skip=10
 posterior <- hlcModel(data.input,group.input,eta,alpha,steps,burn,skip)
 post.ev <- posteriorMeans(posterior)
+
+load("~/Documents/Data/DHS_Burke/Model_K_4.RData")
 plotBetas(post.ev$beta,questions=colnames(data.input))
 
 pi = as.data.frame(post.ev$pi) 
@@ -73,3 +75,6 @@ colnames(pi) = c("pi_1","pi_2")
 fprit <- as.vector(indexes$fprit)
 pi$fprit = fprit 
 xtable(pi)
+
+#K=2: -1916757
+#K=4: -1789000 

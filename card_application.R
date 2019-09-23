@@ -47,9 +47,9 @@ skip=10
 posterior <- hlcModel(aux.data,aux.groups,eta,alpha,steps,burn,skip)
 post.ev <- posteriorMeans(posterior)
 aicm(posterior) 
-save(posterior,file="~/Dropbox/evan/results/Card/model_group_by_ped.RData")
-#load("~/Dropbox/evan/results/Card/model_group_by_daded.RData")
-#post.ev <- posteriorMeans(posterior)
+#save(posterior,file="~/Dropbox/evan/results/Card/model_group_by_ped.RData")
+load("~/Dropbox/evan/results/Card/model_group_by_ped.RData")
+post.ev <- posteriorMeans(posterior)
 plotBetas(post.ev$beta)
 
 
