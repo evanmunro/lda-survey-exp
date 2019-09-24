@@ -1,4 +1,5 @@
-
+library(NMF)
+library(MCMCpack)
 check_recovery_of_parameters <- function(eta.rep,alpha,K,J,L_j,N,G,steps=1000,burn=100,skip=10) {
   data <- generate_data(eta.rep,alpha,K,J,L_j,N,G)
   nmf_result <- nmf(data$Y,K)
@@ -7,7 +8,7 @@ check_recovery_of_parameters <- function(eta.rep,alpha,K,J,L_j,N,G,steps=1000,bu
   W.norm <- W.nmf/rowSums(W.nmf)
   H.norm <- H.nmf/rowSums(H.nmf) 
   nmf.cor <- max(apply(data$beta,MARGIN=1,FUN=function(x){return(cor(x,H.norm[1,]))}))
-  nmf.err <- mean((data$Y  - W.norm%*%H.norm)^2)
+  nmf.err <- mean((data$Y  - W.nmf%*%H.nmf)^2)
 
   
   # lda_model <- LDA(data$count,K,method="Gibbs",control=list(alpha=alpha,delta=eta.rep,iter=steps,burnin=burn,thin=skip))

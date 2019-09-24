@@ -1,7 +1,6 @@
 library(NMF)
 library(dhlvm) 
 library(MCMCpack)
-library(topicmodels)
 source("~/Documents/Github/hlvm-survey-paper/test_dhlvm/simulation_utils.R")
 
 J=1
@@ -78,32 +77,3 @@ mcmc.beta <- post$terms
 
 
 #Now do this in a monte-carlo simulation many times 
-
-J=1
-L_j = 6
-G=5
-K=3
-N=1000
-alpha.gen=1
-eta.gen=0.8
-checkIdCondition(G,L_j)
-
-#identified 
-for(N in c(1000,10000,50000)) { 
-  print(rowMeans(replicate(50, check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))))
-}   
-
-#underidentified 
-
-K=5
-L_j = 38 
-checkIdCondition(G,L_j)
-eta_gen = 0.8
-for (N in c(1000,10000,50000,100000)) {
-  print(rowMeans(replicate(50, check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))))
-}
-
-
-# for (k in 1:K ) {
-#   print(apply(data$beta,MARGIN=1,FUN=function(x){return(cor(x,mcmc.beta[k,]))}))
-# } 
