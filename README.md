@@ -1,7 +1,7 @@
 ### Estimation, Figures, and Tables for "Dynamic Hierarchical Latent Variable Models for Categorical Survey Data"
 #### Author: Evan Munro
 
-This repository contains R code and Jupyter notebooks to replicate the estimation, figures, and tables for the working paper.
+This repository contains R code for the analysis behind the figures and tables for the following working paper. The code structure is still at an early stage and will be revised extensively in the near future. 
 
 [Munro, Evan and Serena Ng. "Dynamic Hierarchical Latent Variable Models for Categorical Survey Data". 2019.](http://www.evanmunro.ca/files/munro_ng_2019.pdf)
 
@@ -13,30 +13,20 @@ First, it is necessary to install the [dhlvm](www.github.com/evanmunro/dhlvm) pa
 devtools::install_github("evanmunro/dhlvm")
 ```  
 
-The replication scripts also require the following R packages, which are available on CRAN:
+The scripts also require the following R packages, which are available on CRAN:
 ```
-ggplot2,
+MCMCpack, xtable 
 ```
 
 #### 2. Download data
 
-The cleaned DHS data is available by request from the authors.
+The cleaned DHS data is not currently public. Raw DHS data can be downloaded from the [DHS Program](https://dhsprogram.com/data/). 
 
-The Michigan survey response data is available for download at the [Survey of Consumers SDA Archive](https://data.sca.isr.umich.edu/sda-public/cgi-bin/hsda?harcsda+sca) and then clicking Download -> Customized Subset. Then, enter the following variables in the "Individual Variables" box and download as a CSV:
+The Michigan survey response data is available for download at the [Survey of Consumers SDA Archive](https://data.sca.isr.umich.edu/sda-public/cgi-bin/hsda?harcsda+sca) and then clicking Download -> Customized Subset. Then, select all variables and download as a CSV:
 
-```
-YYYYMM PAGO PEXP BUS12 BUS5 DUR
-```
+The Card data is available in the data folder in the repository. 
 
+#### 3. Model Estimation 
 
-The GPSS data is not public. The raw data used for this paper is available for Stanford researchers at this [link](https://sul-datasets.stanford.edu/gallup/GPSS/). It may also be available for researchers at other institutions through their library. The filepaths of the three relevant files are as follows:
+#### 4. Replication of Figure and Tables 
 
-```
-"GPSS -- 03 Mar Environment - 2017/GPSS Environment Final GA Aggregate.dta"
-"GPSS -- 05 May Values and Beliefs 2017/GPSS Values Final GA Aggregate.dta"
-"GPSS -- 11 Nov Health Care - 2017/GPSS Health Final GA Aggregate.dta"
-```
-
-#### 3. Run Jupyter Notebooks
-
-Documentation and code for data cleaning, model estimation, and figure plotting are included in the two Jupyter notebooks in the repository. Executing the notebooks requires [installing](https://jupyter.readthedocs.io/en/latest/install.html) Jupyter, and [installing](https://github.com/IRkernel/IRkernel) the R kernel for Jupyter. The Jupyter installation also requires a current Python installation.
