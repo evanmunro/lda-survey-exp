@@ -1,9 +1,7 @@
-### Estimation, Figures, and Tables for "Dynamic Hierarchical Latent Variable Models for Categorical Survey Data"
-#### Author: Evan Munro
+### Estimation, Figures, and Tables for "Latent Dirichlet Analysis of Categorical Survey Data"
+#### Author: Evan Munro and Serena Ng 
 
-This repository contains R code for the analysis behind the figures and tables for the following working paper. The code structure is still at an early stage and will be revised extensively in the near future. 
-
-[Munro, Evan and Serena Ng. "Dynamic Hierarchical Latent Variable Models for Categorical Survey Data". 2019.](http://www.evanmunro.ca/files/munro_ng_2019.pdf)
+This repository contains R code for the analysis behind the figures and tables for a working paper with Serena Ng. The code structure is still at an early stage and will be revised extensively in the near future. 
 
 #### 1. Install software
 
