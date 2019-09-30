@@ -1,43 +1,35 @@
 
-clean_data <- function(raw,na.values=NULL,na.code=10000) { 
-  raw[is.na(raw)] = na.code 
-  raw[raw<0] = na.code 
-  which.na <- t(apply(raw,MARGIN=1,FUN=function(x){return(x%in%na.values)})) 
-  raw[which.na] = na.code 
-  data_clean = apply(raw,MARGIN=2,FUN=function(x) {return(as.numeric(factor(x)))} )
-  return(data_clean) 
-}
 #' Title
 #'
-#' @param x 
-#' @param y 
-#' @param z 
+#' @param x
+#' @param y
+#' @param z
 #'
 #' @return
 #' @export
 #'
 #' @examples
-plotScatter <- function(x,y,z)  { 
-  df <- data.frame(x=x,y=y,z=factor(z)) 
+plotScatter <- function(x,y,z)  {
+  df <- data.frame(x=x,y=y,z=factor(z))
   ggplot2::ggplot(df,ggplot2::aes(x=x,y=y,color=z))+ggplot2::geom_point()
   # ggplot2::ggsave("scatter.pdf")
 }
 
 #' Title
 #'
-#' @param pi.ev 
-#' @param dates 
-#' @param gt 
-#' @param withRecessions 
+#' @param pi.ev
+#' @param dates
+#' @param gt
+#' @param withRecessions
 #'
 #' @return
 #' @export
 #'
 #' @examples
-plotPis <- function(data,withRecessions=F) { 
+plotPis <- function(data,withRecessions=F) {
   data <- reshape2::melt(data,id.vars=c("dates"))
-  g <- ggplot2::ggplot(data)+ggplot2::geom_line(aes(x=dates,y=value,color=variable)) 
-  if(withRecessions==T) { 
+  g <- ggplot2::ggplot(data)+ggplot2::geom_line(aes(x=dates,y=value,color=variable))
+  if(withRecessions==T) {
     recessions.df = read.table(textConnection(
       "Peak, Trough
       1857-06-01, 1858-12-01
@@ -75,11 +67,11 @@ plotPis <- function(data,withRecessions=F) {
       2007-12-01, 2009-06-01"), sep=',',
       colClasses=c('Date', 'Date'), header=TRUE)
     recessions.trim = subset(recessions.df, Peak >= min(data$dates) )
-    g<- g+ geom_rect(data=recessions.trim, 
+    g<- g+ geom_rect(data=recessions.trim,
                      aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.2)
   }
-  g +theme_bw() 
-  ggplot2::ggsave("pi_ev.pdf",width=7,height=3)
+  g +theme_bw()
+  ggplot2::ggsave("pi_ev.pdf",width=7,height=2)
 }
 
 
@@ -87,9 +79,9 @@ plotWithDatesandR <- function(data,lab) {
   library(quantmod)
   library(ggplot2)
   library(reshape2)
-  umcsent = getSymbols('UMCSENT',src='FRED', auto.assign=F) 
+  umcsent = getSymbols('UMCSENT',src='FRED', auto.assign=F)
   umcsent.df = data.frame(date=time(umcsent), umcsent = coredata(umcsent) )
-  
+
   recessions.df = read.table(textConnection(
     "Peak, Trough
     1857-06-01, 1858-12-01
@@ -126,20 +118,20 @@ plotWithDatesandR <- function(data,lab) {
     2001-03-01, 2001-11-01
     2007-12-01, 2009-06-01"), sep=',',
 colClasses=c('Date', 'Date'), header=TRUE)
-  
+
   recessions.trim = subset(recessions.df, Peak >= min(data$date) )
   sentiment.trim  = subset(umcsent.df,date >=min(data$date))
   sentiment.trim  = subset(sentiment.trim,date <=max(data$date))
   sentiment.trim$UMCSENT = (sentiment.trim$UMCSENT - min(sentiment.trim$UMCSENT))/(max(sentiment.trim$UMCSENT)- min(sentiment.trim$UMCSENT))
   g = ggplot(sentiment.trim) + geom_line(aes(x=date, y=UMCSENT,colour='red'),alpha=0.5) + theme_bw() +labs(UMCSENT="ICS")
-  g = g + geom_rect(data=recessions.trim, aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.2) 
+  g = g + geom_rect(data=recessions.trim, aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.2)
   g = g+ geom_line(data=data, aes(x=date,y=toplot,colour='blue'))
   g = g+labs(y="sentiment")
   g = g+  scale_color_discrete(name = "", labels = c(lab, "Michigan ICS"))
   return(g)
 }
 
-plotWithR <- function(data) { 
+plotWithR <- function(data) {
   library(ggplot2)
   library(reshape2)
   recessions.df = read.table(textConnection(
@@ -178,13 +170,13 @@ plotWithR <- function(data) {
     2001-03-01, 2001-11-01
     2007-12-01, 2009-06-01"), sep=',',
     colClasses=c('Date', 'Date'), header=TRUE)
-  
+
     recessions.trim = subset(recessions.df, Peak >= min(data$date) )
     sentiment.trim  = subset(umcsent.df,date >=min(data$date))
     sentiment.trim  = subset(sentiment.trim,date <=max(data$date))
     sentiment.trim$UMCSENT = (sentiment.trim$UMCSENT - min(sentiment.trim$UMCSENT))/(max(sentiment.trim$UMCSENT)- min(sentiment.trim$UMCSENT))
     g = ggplot(sentiment.trim) + geom_line(aes(x=date, y=UMCSENT,colour='red'),alpha=0.5) + theme_bw() +labs(UMCSENT="ICS")
-    g = g + geom_rect(data=recessions.trim, aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.2) 
+    g = g + geom_rect(data=recessions.trim, aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.2)
     g = g+ geom_line(data=data, aes(x=date,y=toplot,colour='blue'))
     g = g+labs(y="sentiment")
     g = g+  scale_color_discrete(name = "", labels = c(lab, "Michigan ICS"))
