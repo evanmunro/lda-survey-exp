@@ -4,7 +4,7 @@ library(dhlvm)
 source("simulation_utils.R")
 
 #set.seed(1)
-plan(multiprocess, workers = 18)
+plan(multiprocess, workers = 4)
 
 
 J=1
@@ -29,8 +29,8 @@ for (i in 1:L_j) {
 #identified
 for(N in c(100,500,1000,10000)) {
   #results <- future_replicate(10,check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))
-  results <- future_replicate(10,check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))
-  write(rowMeans(results),"sims1.txt",append=TRUE)
+  results <- future_replicate(50,check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))
+  print(rowMeans(results))
 }
 
 
@@ -56,8 +56,8 @@ for (i in 1:L_j) {
 
 
 for (N in c(100,500,1000,10000)) {
-  results <- future_replicate(500,check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))
-  write(rowMeans(results),"sims2.txt",append=TRUE)
+  results <- future_replicate(50,check_recovery_of_parameters(eta.gen,alpha.gen,K,J,L_j,N,G))
+  print(rowMeans(results))
 }
 
 
