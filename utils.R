@@ -47,9 +47,9 @@ plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
 }
 
 
-plotPis <- function(data,withRecessions=F) {
+plotPis <- function(data,withRecessions=F,path="") {
   data <- melt(data,id.vars=c("dates"))
-  g <- ggplot(data)+geom_line(aes(x=dates,y=value,color=variable))
+  g <- ggplot(data)+geom_line(aes(x=dates,y=value,color=variable),alpha=0.9)
   if(withRecessions==T) {
     recessions.df = read.table(textConnection(
       "Peak, Trough
@@ -89,8 +89,8 @@ plotPis <- function(data,withRecessions=F) {
       colClasses=c('Date', 'Date'), header=TRUE)
     recessions.trim = subset(recessions.df, Peak >= min(data$dates) )
     g<- g+ geom_rect(data=recessions.trim,
-                     aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.2)
+                     aes(xmin=Peak, xmax=Trough, ymin=-Inf, ymax=+Inf), fill='gray', alpha=0.4)
   }
   g +theme_bw()
-  ggsave("pi_ev.pdf",width=7,height=2)
+  ggsave(paste(path,"pi_ev.pdf",sep=""),width=7,height=2)
 }

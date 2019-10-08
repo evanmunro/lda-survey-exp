@@ -12,6 +12,8 @@ data.input <- clean_data(data,na.codes)
 data.input <- data.input[,vars]
 group.input <- as.numeric(factor(data$YYYYMM))
 
+#checkSparsity(data.input)
+
 N= nrow(data.input)
 J=ncol(data.input)
 L = apply(data.input,MARGIN=2,FUN=function(x) return(length(unique(x))))
@@ -57,70 +59,46 @@ Y <-xtoAdjacency(data.input,group.input)
 
 dates <- paste(unique(data$YYYYMM),"01",sep="")
 dates <- as.Date(dates,"%Y%m%d")
-
 umcsent <- read.csv("data/michigan/UMCSENT.csv")
 umcsent <- (umcsent$UMCSENT - min(umcsent$UMCSENT))/(max(umcsent$UMCSENT)- min(umcsent$UMCSENT))*max(post.ev$pi[,1])
-
-
 data.plot1 <- data.frame(dates = dates,index_1=post.ev$pi[,1],ics =umcsent )
-plotPis(data.plot1,T)
+
 
 #second figure for pi
 unrate <- read.csv("data/michigan/UNRATE.csv")
 epu <- read.csv("data/michigan/epu.csv")
 epu <- epu$epu
-
 pi3.short <- post.ev$pi[1:length(epu),3]
 pi4.short <- post.ev$pi[1:length(epu),4]
 dates.short <- dates[1:length(epu)]
 unrate <- unrate$UNRATE[1:length(epu)]
-unrate <- (unrate - mean(unrate))/sd(unrate)*sd(pi3.short)+mean(pi3.short)
+unrate <- 0.6*(unrate - min(unrate))/(max(unrate)- min(unrate))
 epu <- (epu - mean(epu))/sd(epu)*sd(pi4.short)+mean(pi4.short)
-
-
 data.plot2 <- data.frame(dates=dates.short,index_4 = pi4.short,epu=epu)
-data.plot2 <- data.frame(dates=dates.short,index_4 = pi4.short)
-plotPis(data.plot2,T)
 data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short,unemp=unrate)
-data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short)
-plotPis(data.plot3,T)
-#plotPis(post.ev$pi,dates)
+#Figures for Figure 3
+plotPis(data.plot1,T,path="figures/mich1_")
+plotPis(data.plot2,T,path="figures/mich4_")
+plotPis(data.plot3,T,path="figures/mich3_")
 
-#plotWithDatesandR(data.frame(date=dates,toplot=post.ev$pi[,1]),lab="Probability Index")
-
-#sentiment vs education and income
-
-na.obs<- is.na(data$EDUC) | is.na(data$INCOME)
-educ.z.counts <- table(data$EDUC,post.ev$z_assign)
-educ.z.freq <- educ.z.counts/apply(educ.z.counts,MARGIN=1,FUN=sum)
-colnames(educ.z.freq)=c("Z_i=1","Z_i=2")
-
-ggplot(df,aes(x=y,group=z,fill=z))+
-  geom_histogram(position="dodge2",bins=10)+theme_bw()
-
+#sentiment vs education
 sp500 <- read.csv("~/Documents/Data/Michigan/sp500_shiller.csv")
+sp500_ret <- (sp500$SP500[2:length(sp500$SP500)] - sp500$SP500[1:(length(sp500$SP500)-1)])/sp500$SP500[1:(length(sp500$SP500)-1)]
+sp500_ret <- sp500_ret[1:length(epu)]
 
-sp500 <- (sp500$SP500[2:length(sp500$SP500)] - sp500$SP500[1:(length(sp500$SP500)-1)])/sp500$SP500[1:(length(sp500$SP500)-1)]
-sp500 <- sp500[1:length(epu)]
-short.data = data.frame(dates=unique(data$YYYYMM[1:length(epu)]),epu=epu,sp500=sp500,unrate=unrate)
-long.data = data.frame(dates=data$YYYYMM,z_prob = post.ev$z_prob[,4],educ=factor(data$EDUC))
-long.data = long.data[!is.na(long.data$educ),]
+reg.data = data.frame(dates=unique(data$YYYYMM)[1:length(epu)],epu=epu,sp500=sp500_ret, unrate=unrate) 
 
-educ_index<- aggregate(long.data,by=list(long.data$educ,long.data$dates),FUN=mean)
-high_educ_index <- educ_index$z_prob[educ_index$Group.1==6]
-low_educ_index <- educ_index$z_prob[educ_index$Group.1==1]
-#low_educ_index <- aggregate(educ_index[educ_index$Group.1!=6,],
-#                            by=list(educ_index[educ_index$Group.1!=6,
- #                                              "Group.2"]),FUN=mean)
-reg.high.data <- data.frame(dates = dates.short,high_educ_index=high_educ_index[1:length(epu)],epu=epu,sp500=sp500,unrate=unrate)
-reg.low.data <- data.frame(dates=dates.short,low_educ_index=low_educ_index[1:length(epu)],epu=epu,sp500=sp500,unrate=unrate)
+educ_index <- aggregate(post.ev$z_prob[,4],by=list(factor(data$EDUC),data$YYYYMM),FUN=mean) 
 
-#test = aggregate(reg.data,by=list("YYYYMM","educ"),FUN=mean)
+high_educ_index <- educ_index$x[educ_index$Group.1==6]
+low_educ_index <- educ_index$x[educ_index$Group.1==1]
 
-summary(lm(high_educ_index~sp500+unrate+epu,data=reg.high.data))
-summary(lm(low_educ_index~sp500+unrate+epu,data=reg.low.data))
+reg.data$high_educ <- high_educ_index[1:length(epu)]
+reg.data$low_educ <- low_educ_index[1:length(epu)]
+summary(lm(high_educ ~ sp500+unrate+epu,data=reg.data))
+summary(lm(low_educ ~sp500+unrate+epu,data=reg.data))
 
-stargazer(lm(low_educ_index~sp500+unrate+epu,data=reg.low.data), lm(high_educ_index~sp500+unrate+epu,data=reg.high.data))
+#stargazer(lm(low_educ_index~sp500+unrate+epu,data=reg.low.data), lm(high_educ_index~sp500+unrate+epu,data=reg.high.data))
 
 
 
