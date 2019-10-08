@@ -15,7 +15,7 @@ The original sources of the data are as follows:
 The data contains 3 categorical variables:
 1. `water_qual`, rated from 1 to 4
 2. `toilet_qual`, rated from 1 to 5
-3. `floor_qual`, rated from 1 to 4  
+3. `floor_qual`, rated from 1 to 3 
 
 It also contains 7 binary variables, where a value of 2 indicates ownership and
 1 indicates lack of ownership: `electric`, `radio`, `tv`, `fridge`, `motorbike`, `car`
@@ -72,7 +72,7 @@ The responses for `attitude_hs` are as follows:
 1. Like it very much
 2. Like it fairly well
 3. Dislike it somewhat or dislike it very much
-4. Missing 
+4. Missing
 
 with the actual questions, and question-specific interpretation of the responses available from by searching the NLSYM question code in `codebook_additional.txt`.
 

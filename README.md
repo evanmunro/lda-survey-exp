@@ -3,19 +3,21 @@
 
 This repository contains data and code for a working paper with Serena Ng.
 
-It contains two data folders:  
+It contains three folders:  
  - `data` contains:
-    1. Raw original data and associated description files in text format for Card and Michigan data
+    1. Raw data and associated description files in text format for Michigan data
     2. Cleaned DHS data in RData format (data was originally obtained in cleaned form)
+    3. Recoded Card data in RData format and description files in text format
+    4. README with sources and data guide
  - `posteriors` Contains saved model posterior means that are used to create the tables for the paper
+ - `simulations` Contains `mcmc_simulations.R` for the simulations recorded in Table 1 in the paper
 
-And three sets of scripts:
-- `simulation.R` runs the monte carlo simulations from the paper
-- `estimation.R` estimates three models from the paper and saves the model posteriors
+And some scripts:
+- `utils.R` contain utility functions for plotting data
 - `card_analysis.R`, `mich_analysis.R`, and `dhs_analysis.R` produce tables and figures
-for the application section of the paper from the saved model posteriors.
-
-Since the `posteriors` folder includes the saved posteriors used in the current paper draft, it is not necessary to run the estimation code if you are just interested in replicating figures and tables exactly as in the paper.
+for the application section of the paper, either from the saved model posteriors or from
+a newly estimated model. Set `re-estimate=T` in order to re-estimate the models (can be
+computationally intensive).
 
 #### Requirements
 
@@ -27,5 +29,5 @@ devtools::install_github("evanmunro/dhlvm")
 
 The scripts also require the following R packages, which are available on CRAN:
 ```
-MCMCpack, xtable, future.apply, reshape2, ggplot2
+MCMCpack, reshape2, ggplot2
 ```

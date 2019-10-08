@@ -1,103 +1,73 @@
 library(dhlvm)
-source("~/Documents/Github/hlvm-survey-paper/data_cleaning_utils.R")
-setwd("~/Dropbox/evan/results/Michigan/")
-data_dir <- "~/Documents/Data/Michigan/raw_data_all.csv"
+source("utils.R")
+re_estimate=T
+# from the SDA Codebook
 na.codes <- c(0,8,9,98,99)
+vars <- c("PAGO", "PEXP","RINC","BAGO","BEXP","BUS12","BUS5","UNEMP","GOVT", "RATEX","PX1Q1","DUR","HOM","CAR")
 
-data <- read.csv(data_dir)
+data <- read.csv("data/michigan/mich_raw.csv")
 
 #check which variables are not available in the first year:
-na_pct <- function(x) {
-  return(sum(is.na(x))/length(x))
-}
+data.input <- clean_data(data,na.codes)
+data.input <- data.input[,vars]
+group.input <- as.numeric(factor(data$YYYYMM))
 
-na.pcts <- apply(data,MARGIN=2,FUN=na_pct)
-n.opts <- apply(data,MARGIN=2,FUN=function(x) return(length(unique(x))))
+N= nrow(data.input)
+J=ncol(data.input)
+L = apply(data.input,MARGIN=2,FUN=function(x) return(length(unique(x))))
 
-full.sample.cols <- colnames(data)[na.pcts<0.5]
-candidate.cols <-colnames(data)[na.pcts<0.5&n.opts <25]
-dem.cols <- c("BIRTHM","REGION","SEX","MARRY","NUMKID","NUMADT","EDUC","ECLGRD","EHSGRD","EGRADE","INCQFM")
-ics.cols = c("ICS","ICC","ICE")
 
-questions <- candidate.cols[!candidate.cols%in% c(dem.cols,ics.cols)]
-print(questions)
+K=4
 
-data.idx <- data[,questions]
-apply(data.idx,MARGIN=2,FUN=unique)
-date_var <- "YYYYMM"
-orig_idx <- "ICS"
-
-vars <- c("PAGO", "PEXP","RINC","BAGO","BEXP","BUS12","BUS5","UNEMP","GOVT", "RATEX","PX1Q1","DUR","HOM","CAR") 
-data.for.input <- clean_data(data.idx,na.codes)
-data.for.input <- data.for.input[,vars]
-groups.input <- as.numeric(factor(data$YYYYMM))
-N= nrow(data.for.input)
-J=ncol(data.for.input)
-L = apply(data.for.input,MARGIN=2,FUN=function(x) return(length(unique(x))))
-
-print("starting")
-for (K in 2:8) {
-
-  eta= list()
-  for(j in 1:J) {
-    eta[[j]] = matrix(0.1,nrow=K,ncol=L[j])
-    for(k in 1:K) {
-      if ( k <= L[j]) {
-       eta[[j]][k,k] = 1
-     }
+eta= list()
+for(j in 1:J) {
+  eta[[j]] = matrix(1,nrow=K,ncol=L[j])
+  for(k in 1:K) {
+    if ( k <= L[j]) {
+      eta[[j]][k,k] = 10
     }
   }
-
+}
+if (re_estimate) {
+  print("starting")
+  set.seed(1)
   v0=10
   s0=1
-  steps = 1000
-  burn = 100
+  steps = 3000
+  burn = 1000
   skip = 10
   tune=0.01
 
-  posterior = dhlcModel(data.for.input,groups.input,eta,v0,s0,tune,K,steps,burn,skip)
-
-  filenm = paste("~/Documents/Data/Michigan/K_",K,"_Index2.Rdata",sep="")
-  save(posterior,file=filenm)
-  #load(file="~/Documents/Data/Michigan/K_5_Index.Rdata")
-  #posterior$likelihood <- calculateLikelihood(posterior,data.for.input-1)
+  posterior = dhlcModel(data.input,group.input,eta,v0,s0,tune,K,steps,burn,skip)
   post.ev <- posteriorMeans(posterior)
-  print(K)
-  print(bic(data.for.input,groups.input,post.ev$pi,post.ev$beta,dynamic=T))
+  save(post.ev,file="posteriors/mich_estimate.RData")
+
+} else {
+  load("posteriors/mich_estimate.RData")
+
 }
+#check BIC
+print(bic(data.input,group.input,post.ev$pi,post.ev$beta,dynamic=T))
 
-for(K in 2:8) {
-  filenm = paste("~/Documents/Data/Michigan/K_",K,"_IndexNew.Rdata",sep="")
-  load(filenm)
-  post.ev <- posteriorMeans(posterior)
-  print(K)
-  print(bic(data.for.input,groups.input,post.ev$pi,post.ev$beta,dynamic=T))
-  
-}
+plotBetas(post.ev$beta,path="figures/", questions=colnames(data.input))
 
-Y <-xtoAdjacency(data.for.input,groups.input)
+# check eigen values of Y
+Y <-xtoAdjacency(data.input,group.input)
 
-#K=6: 18761.09 
-#K=5: 15074.7 
-#K=4: 
-#K=3: 
-#K=2: 
 
-load(file="~/Documents/Data/Michigan/K_4_Index.Rdata")
-  
-#first figure for pi
 dates <- paste(unique(data$YYYYMM),"01",sep="")
-
 dates <- as.Date(dates,"%Y%m%d")
-post.ev <- posteriorMeans(posterior)
-umcsent <- read.csv("~/Documents/Data/Michigan/UMCSENT.csv")
+
+umcsent <- read.csv("data/michigan/UMCSENT.csv")
 umcsent <- (umcsent$UMCSENT - min(umcsent$UMCSENT))/(max(umcsent$UMCSENT)- min(umcsent$UMCSENT))*max(post.ev$pi[,1])
+
+
 data.plot1 <- data.frame(dates = dates,index_1=post.ev$pi[,1],ics =umcsent )
 plotPis(data.plot1,T)
 
 #second figure for pi
-unrate <- read.csv("~/Documents/Data/Michigan/UNRATE.csv")
-epu <- read.csv("~/Documents/Data/Michigan/epu.csv")
+unrate <- read.csv("data/michigan/UNRATE.csv")
+epu <- read.csv("data/michigan/epu.csv")
 epu <- epu$epu
 
 pi3.short <- post.ev$pi[1:length(epu),3]
@@ -115,7 +85,7 @@ data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short,unemp=unrate)
 data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short)
 plotPis(data.plot3,T)
 #plotPis(post.ev$pi,dates)
-plotBetas(post.ev$beta)
+
 #plotWithDatesandR(data.frame(date=dates,toplot=post.ev$pi[,1]),lab="Probability Index")
 
 #sentiment vs education and income
@@ -177,5 +147,5 @@ mich_PCA$Time <- data$YYYYMM[which.rows.na]
 #K_2: 28
 #K_3: 27
 #K_4: 26.61
-#K_5: 26.6 
-#K_6: 27.86 
+#K_5: 26.6
+#K_6: 27.86
