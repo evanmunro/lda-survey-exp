@@ -1,5 +1,52 @@
 library(reshape2)
 library(ggplot2)
+
+#' Plot class-specific distributions over responses in bar chart
+#'
+#' @param betas J-length list of K x L_j matrices of class-specific distributions over responses
+#' @param response_codes Optional J length list, each containing a vector of response codes for each question to plot
+#' @param questions Optional J length vector of question labels to title each graph
+#' @param path location to save plots
+#'
+#' @return Saves plots of beta for each question to path
+plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
+  library(ggplot2)
+  J = length(betas)
+  K = nrow(betas[[1]])
+  if (is.null(questions)){
+    questions = 1:J
+  }
+  for (j in 1:J) {
+    beta_mat = t(betas[[j]])
+    L_j = nrow(beta_mat)
+    beta_df = data.frame(beta_mat)
+    colnames(beta_df) = paste("K",1:K,sep="")
+    if(!is.null(response_codes)) {
+      x = response_codes[[j]]
+    }
+    else {
+      if(L_j==2) {
+        x = 0:1
+      }
+      else{
+        x= 1:L_j
+      }
+    }
+    if(!is.null(questions)) {
+      title = paste("Q_",questions[j],sep="")
+    }
+    beta_df$response = factor(x)
+    data_long = reshape2::melt(beta_df,id.vars=c("response"))
+
+    colnames(data_long) = c("Response","Class","Probability")
+    filename  = paste(path,title,".pdf",sep="")
+    ggplot(data_long,aes(x=Response,y=Probability,fill=Class)) +
+      geom_bar(stat='identity', position='dodge')
+    ggsave(filename)
+  }
+}
+
+
 plotPis <- function(data,withRecessions=F) {
   data <- melt(data,id.vars=c("dates"))
   g <- ggplot(data)+geom_line(aes(x=dates,y=value,color=variable))
