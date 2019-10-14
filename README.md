@@ -1,14 +1,13 @@
 ### Replication code for "Latent Dirichlet Analysis of Categorical Survey Data"
 #### Author: Evan Munro and Serena Ng
 
-This repository contains data and code for a working paper with Serena Ng.
+This repository contains data and code for a [working paper](https://arxiv.org/abs/1910.04883) with Serena Ng.
 
 It contains three folders:  
  - `data` contains:
     1. Raw data and associated description files in text format for Michigan data
-    2. Cleaned DHS data in RData format (data was originally obtained in cleaned form)
-    3. Recoded Card data in RData format and description files in text format
-    4. README with sources and data guide
+    2. Recoded Card data in RData format and description files in text format
+    3. README with sources and data guide
  - `posteriors` Contains saved model posterior means that are used to create the tables for the paper
  - `simulations` Contains `mcmc_simulations.R` for the simulations recorded in Table 1 in the paper
 
