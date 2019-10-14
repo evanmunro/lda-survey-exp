@@ -7,15 +7,14 @@ The original sources of the data are as follows:
  - The Michigan data can be downloaded from the [Survey of Consumers SDA Archive](https://data.sca.isr.umich.edu/sda-public/cgi-bin/hsda?harcsda+sca)
  - The original Card dataset is available [here](http://davidcard.berkeley.edu/data_sets.html). The additional variables are available from the [NLS](https://www.nlsinfo.org/investigator/pages/login.jsp).
 
- The DHS data, however, was obtained in cleaned form from Prof. [Marshall Burke](http://web.stanford.edu/~mburke/).
- As a result, the raw data used to construct the cleaned data is not available.
+ We do not yet have permission to share the DHS data in cleaned form, so it is not currently available in this repository.
 
 ### DHS Data
 
 The data contains 3 categorical variables:
 1. `water_qual`, rated from 1 to 4
 2. `toilet_qual`, rated from 1 to 5
-3. `floor_qual`, rated from 1 to 3 
+3. `floor_qual`, rated from 1 to 3
 
 It also contains 7 binary variables, where a value of 2 indicates ownership and
 1 indicates lack of ownership: `electric`, `radio`, `tv`, `fridge`, `motorbike`, `car`
