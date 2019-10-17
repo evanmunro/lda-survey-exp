@@ -20,7 +20,7 @@ computationally intensive).
 
 #### Requirements
 
-It is is necessary to install the R package [dhlvm](www.github.com/evanmunro/dhlvm) for the models in the paper from Github using `devtools`:
+It is is necessary to install the R package [dhlvm](www.github.com/evanmunro/dhlvm) for the models in the paper from Github using the R package `devtools`:
 
 ```
 devtools::install_github("evanmunro/dhlvm")
