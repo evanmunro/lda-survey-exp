@@ -2,3 +2,5 @@
 .ipynb_checkpoints
 *.txt
 *.pdf
+old*
+.Rhistory

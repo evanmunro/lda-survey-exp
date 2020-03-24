@@ -1,7 +1,7 @@
 library(dhlvm) 
 source("utils.R")
 #switch to T if you would like to re-estimate the model before replicating the tables
-re_estimate=T
+re_estimate=F
 
 load("data/card/card_data.RData")
 data <- card.data 
@@ -83,6 +83,53 @@ tail(sort(raoCalc))
 
 #examine convergence of MCMC chain 
 #plot(posterior$pi[1,1,],type="l")
+
+#compare stability of estimates to GoM 
+
+Total = nrow(aux.data)
+Rj = rep(1,J) 
+Nijr <- array(1, dim = c(Total, J, max(Rj)))
+K <- 3 
+Vj <- apply(aux.data,MARGIN=2,FUN= function(x) return(length(unique(x))))
+# we initialize alpha to .2
+alpha <- rep(.2, K)
+# All variables are multinomial
+dist <- rep("multinomial", J)
+# obs are the observed responses. it is a 4-d array indexed by i,j,r,n # note that obs ranges from 0 to 2 for each response
+obs <- array(0, dim = c(Total, J, max(Rj), max(Nijr)))
+obs[, , 1, 1] <- as.matrix(aux.data-1)
+set.seed(123)
+theta <- array(0, dim = c(J, K, max(Vj))) 
+
+for (j in 1:J) {
+  theta[j, , 1:Vj[j]] <- gtools::rdirichlet(K, rep(.8, Vj[j])) 
+}
+
+initial <- mixedMemModel(Total = Total, J = J, Rj = Rj,
+                         Nijr = Nijr, K = K, Vj = Vj, alpha = alpha,
+                         theta = theta, dist = dist, obs = obs)
+
+
+out <- mmVarFit(initial, printStatus = 1, printMod = 25)
+
+pi <- out$phi/rowSums(as.matrix(out$phi))
+
+set.seed(900)
+theta <- array(0, dim = c(J, K, max(Vj))) 
+
+for (j in 1:J) {
+  theta[j, , 1:Vj[j]] <- gtools::rdirichlet(K, rep(.8, Vj[j])) 
+}
+
+initial <- mixedMemModel(Total = Total, J = J, Rj = Rj,
+                         Nijr = Nijr, K = K, Vj = Vj, alpha = alpha,
+                         theta = theta, dist = dist, obs = obs)
+
+
+out <- mmVarFit(initial, printStatus = 1, printMod = 25)
+
+pi2 <- out$phi/rowSums(as.matrix(out$phi))
+
 
 #check that heterogeneity in returns does not appear in observed heterogeneity 
 base1 = "LWAGE76~BLACK+EXP76 +EXP762+SMSA76R+REG76R+ED76*LIBCRD14*SINMOM14"

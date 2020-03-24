@@ -9,8 +9,10 @@ data <- read.csv("data/michigan/mich_raw.csv")
 
 #check which variables are not available in the first year:
 data.input <- clean_data(data,na.codes)
-data.input <- data.input[,vars]
 group.input <- as.numeric(factor(data$YYYYMM))
+data.input <- data.input[,vars]
+
+#forecast the contents of a new document 
 
 #checkSparsity(data.input)
 
@@ -42,12 +44,14 @@ if (re_estimate) {
 
   posterior = dhlcModel(data.input,group.input,eta,v0,s0,tune,K,steps,burn,skip)
   post.ev <- posteriorMeans(posterior)
-  save(post.ev,file="posteriors/mich_estimate.RData")
+  save(post.ev,file="posteriors/mich_estimate_fh.RData")
 
 } else {
   load("posteriors/mich_estimate.RData")
 
 }
+
+static.model = hlcModel(data.input,group.input,eta,alpha,steps,burn,skip)
 #check BIC
 print(bic(data.input,group.input,post.ev$pi,post.ev$beta,dynamic=T))
 
@@ -81,46 +85,76 @@ plotPis(data.plot1,T,path="figures/mich1_")
 plotPis(data.plot2,T,path="figures/mich4_")
 plotPis(data.plot3,T,path="figures/mich3_")
 
-#sentiment vs education
-sp500 <- read.csv("~/Documents/Data/Michigan/sp500_shiller.csv")
-sp500_ret <- (sp500$SP500[2:length(sp500$SP500)] - sp500$SP500[1:(length(sp500$SP500)-1)])/sp500$SP500[1:(length(sp500$SP500)-1)]
-sp500_ret <- sp500_ret[1:length(epu)]
 
-reg.data = data.frame(dates=unique(data$YYYYMM)[1:length(epu)],epu=epu,sp500=sp500_ret, unrate=unrate) 
+## Out of Sample Exercises 
 
-educ_index <- aggregate(post.ev$z_prob[,4],by=list(factor(data$EDUC),data$YYYYMM),FUN=mean) 
+#split data for out of sample log-likelihood
+data.fh<- data.input#[group.input <251,vars]
+group.fh = group.input#[group.input<251]
 
-high_educ_index <- educ_index$x[educ_index$Group.1==6]
-low_educ_index <- educ_index$x[educ_index$Group.1==1]
+N= nrow(data.fh)
+J=ncol(data.fh)
+L = apply(data.fh,MARGIN=2,FUN=function(x) return(length(unique(x))))
+K=4
+eta= list()
+for(j in 1:J) {
+  eta[[j]] = matrix(1,nrow=K,ncol=L[j])
+  for(k in 1:K) {
+    if ( k <= L[j]) {
+      eta[[j]][k,k] = 10
+    }
+  }
+}
 
-reg.data$high_educ <- high_educ_index[1:length(epu)]
-reg.data$low_educ <- low_educ_index[1:length(epu)]
-summary(lm(high_educ ~ sp500+unrate+epu,data=reg.data))
-summary(lm(low_educ ~sp500+unrate+epu,data=reg.data))
+set.seed(1)
+v0=10
+s0=1
+steps = 300
+burn = 10
+skip = 10
+tune=0.01
 
-#stargazer(lm(low_educ_index~sp500+unrate+epu,data=reg.low.data), lm(high_educ_index~sp500+unrate+epu,data=reg.high.data))
+posterior = dhlcModel(data.fh,group.fh,eta,v0,s0,tune,K,steps,burn,skip)
+post.ev <- posteriorMeans(posterior)
+save(post.ev,file="posteriors/mich_estimate_fh.RData")
 
 
+load("posteriors/mich_estimate_fh.RData")
 
-#see how unemployment vs news  predicts profile probabilities
-#for educated vs uneducated, or high vs low income people
+K=4
+G = length(unique(group.fh))
+alpha = matrix(c(1,1,1),nrow=G,ncol=K,byrow=T)
 
+steps=500
+burn=200
+skip=10
+posterior.static <- hlcModel(data.fh,group.fh,eta,alpha,steps,burn,skip)
+post.ev.static <- posteriorMeans(posterior.static)
+save(post.ev,file="posteriors/mich_static.RData")
 
+g_last = post.ev$gamma[nrow(post.ev$gamma),]
+pi.sample.d = MASS::mvrnorm(100,g_last,post.ev$sigma)
+pi.sample.d = exp(pi.sample.d)/rowSums(exp(pi.sample.d))
+pi.sample.static = gtools::rdirichlet(100,rep(1,K))
 
-#save some data for serena
+print(bic(data.input,group.input,post.ev$pi,post.ev.static$beta,dynamic=T))
 
-input.data <- read.csv("~/Dropbox/evan/results/Michigan/mich_PCA.csv")
+#then calculate mean posterior likelihood for samples from
+# vs naive static model (samples from Dirichlet) 
 
-factored.data <- apply(data.for.input,MARGIN=2,FUN=factor)
-dummy.vars <- model.matrix(~.,data.frame(factored.data))
-mich_FP <- data.frame(dummy.vars[,2:ncol(dummy.vars)])
-write.csv(mich_FP,"mich_FP.csv")
+data.step = data.input[group.input==251,vars]
+#
+l.dynamic <- apply(pi.sample.d,MARGIN=1,FUN= function(x) likelihood(data.input,group.input,
+                                                                    rbind(post.ev$pi,x),
+                                                                    post.ev$beta,select=251))
+l.static <- apply(pi.sample.static,MARGIN=1,FUN= function(x) likelihood(data.input,group.input,rbind(post.ev.static$pi,x),
+                                                                        post.ev.static$beta,select=251))
 
-na.value <- apply(data.for.input,MARGIN=2,FUN=max)
-which.rows.na <- apply(data.for.input,MARGIN=1,FUN=function(x){return(sum(x==na.value)==0)})
-
-mich_PCA <- data.frame(data.for.input[which.rows.na,])
-mich_PCA$Time <- data$YYYYMM[which.rows.na]
+l.smart <- likelihood(data.input,group.input,
+                      rbind(post.ev$pi,post.ev$pi[nrow(post.ev$pi),]), post.ev$beta, select=251) 
+print(mean(l.dynamic))
+print(mean(l.static))
+# smart static model (just assume previous theta stays constant) 
 
 #K_2: 28
 #K_3: 27
