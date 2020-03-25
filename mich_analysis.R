@@ -51,7 +51,6 @@ if (re_estimate) {
 
 }
 
-static.model = hlcModel(data.input,group.input,eta,alpha,steps,burn,skip)
 #check BIC
 print(bic(data.input,group.input,post.ev$pi,post.ev$beta,dynamic=T))
 
@@ -88,49 +87,14 @@ plotPis(data.plot3,T,path="figures/mich3_")
 
 ## Out of Sample Exercises 
 
-#split data for out of sample log-likelihood
-data.fh<- data.input#[group.input <251,vars]
-group.fh = group.input#[group.input<251]
+#steps = 360:378 
 
-N= nrow(data.fh)
-J=ncol(data.fh)
-L = apply(data.fh,MARGIN=2,FUN=function(x) return(length(unique(x))))
-K=4
-eta= list()
-for(j in 1:J) {
-  eta[[j]] = matrix(1,nrow=K,ncol=L[j])
-  for(k in 1:K) {
-    if ( k <= L[j]) {
-      eta[[j]][k,k] = 10
-    }
-  }
-}
-
-set.seed(1)
-v0=10
-s0=1
-steps = 300
-burn = 10
-skip = 10
-tune=0.01
-
-posterior = dhlcModel(data.fh,group.fh,eta,v0,s0,tune,K,steps,burn,skip)
-post.ev <- posteriorMeans(posterior)
-save(post.ev,file="posteriors/mich_estimate_fh.RData")
-
-
-load("posteriors/mich_estimate_fh.RData")
-
-K=4
-G = length(unique(group.fh))
-alpha = matrix(c(1,1,1),nrow=G,ncol=K,byrow=T)
 
 steps=500
 burn=200
 skip=10
-posterior.static <- hlcModel(data.fh,group.fh,eta,alpha,steps,burn,skip)
-post.ev.static <- posteriorMeans(posterior.static)
-save(post.ev,file="posteriors/mich_static.RData")
+
+save(post.ev.static,file="posteriors/mich_static.RData")
 
 g_last = post.ev$gamma[nrow(post.ev$gamma),]
 pi.sample.d = MASS::mvrnorm(100,g_last,post.ev$sigma)
