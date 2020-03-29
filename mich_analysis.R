@@ -89,36 +89,10 @@ plotPis(data.plot3,T,path="figures/mich3_")
 
 #steps = 360:378 
 
-
-steps=500
-burn=200
-skip=10
-
-save(post.ev.static,file="posteriors/mich_static.RData")
-
-g_last = post.ev$gamma[nrow(post.ev$gamma),]
-pi.sample.d = MASS::mvrnorm(100,g_last,post.ev$sigma)
-pi.sample.d = exp(pi.sample.d)/rowSums(exp(pi.sample.d))
-pi.sample.static = gtools::rdirichlet(100,rep(1,K))
-
-print(bic(data.input,group.input,post.ev$pi,post.ev.static$beta,dynamic=T))
-
 #then calculate mean posterior likelihood for samples from
 # vs naive static model (samples from Dirichlet) 
 
-data.step = data.input[group.input==251,vars]
-#
-l.dynamic <- apply(pi.sample.d,MARGIN=1,FUN= function(x) likelihood(data.input,group.input,
-                                                                    rbind(post.ev$pi,x),
-                                                                    post.ev$beta,select=251))
-l.static <- apply(pi.sample.static,MARGIN=1,FUN= function(x) likelihood(data.input,group.input,rbind(post.ev.static$pi,x),
-                                                                        post.ev.static$beta,select=251))
 
-l.smart <- likelihood(data.input,group.input,
-                      rbind(post.ev$pi,post.ev$pi[nrow(post.ev$pi),]), post.ev$beta, select=251) 
-print(mean(l.dynamic))
-print(mean(l.static))
-# smart static model (just assume previous theta stays constant) 
 
 #K_2: 28
 #K_3: 27
