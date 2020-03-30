@@ -23,8 +23,8 @@ estimateBoth <- function(data.input,group.input,step) {
   }
   v0=10
   s0=1
-  steps = 15
-  burn = 2
+  steps = 1500
+  burn = 500
   skip = 2
   tune=0.01
   
