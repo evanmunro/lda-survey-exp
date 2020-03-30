@@ -81,9 +81,11 @@ group.input <- as.numeric(factor(data$YYYYMM))
 data.input <- data.input[,vars]
 
 #360:379
-steps=360:379
-
-forecast_metrics = future_sapply(steps, function(x) estimateBoth(data.input,group.input,x)) 
-save(forecast_metrics,file="forecast.RData")
+months1=360:369
+months2 = 370:379
+forecast_metrics = future_sapply(months1, function(x) estimateBoth(data.input,group.input,x)) 
+save(forecast_metrics,file="forecast1.RData")
+forecast_metrics = future_sapply(months2, function(x) estimateBoth(data.input,group.input,x)) 
+save(forecast_metrics,file="forecast2.RData")
 
 
