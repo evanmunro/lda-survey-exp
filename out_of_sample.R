@@ -84,7 +84,7 @@ data.input <- data.input[,vars]
 months=360:379
 #months2 = 363:365
 
-forecast = mclapply(months,FUN=function(x) estimateBoth(data.input,group.input,x), mc.cores=2)
+forecast = mclapply(months,FUN=function(x) estimateBoth(data.input,group.input,x), mc.cores=10)
 save(forecast,file="forecast.RData")
 
 #started at 12:10 pm 
