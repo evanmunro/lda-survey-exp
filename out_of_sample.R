@@ -1,7 +1,8 @@
 library(dhlvm)
 source("utils.R")
 library(future.apply)
-plan(multiprocess,workers=16)
+options(future.globals.maxSize = +Inf)
+plan(multiprocess,workers=10)
 
 
 estimateBoth <- function(data.input,group.input,step) { 
@@ -80,7 +81,7 @@ group.input <- as.numeric(factor(data$YYYYMM))
 data.input <- data.input[,vars]
 
 #360:379
-steps=378:379
+steps=360:379
 
 forecast_metrics = future_sapply(steps, function(x) estimateBoth(data.input,group.input,x)) 
 save(forecast_metrics,file="forecast.RData")
