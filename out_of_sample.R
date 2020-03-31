@@ -1,8 +1,9 @@
 library(dhlvm)
 source("utils.R")
-library(parallel)
-#options(future.globals.maxSize = +Inf)
-#plan(multiprocess(workers=4))
+library(future.apply)
+#library(parallel)
+options(future.globals.maxSize = +Inf)
+plan(multiprocess(workers=10))
 
 
 estimateBoth <- function(data.input,group.input,step) { 
@@ -84,8 +85,8 @@ data.input <- data.input[,vars]
 months=360:379
 #months2 = 363:365
 
-forecast = mclapply(months,FUN=function(x) estimateBoth(data.input,group.input,x), mc.cores=10)
-save(forecast,file="forecast.RData")
+#forecast = mclapply(months,FUN=function(x) estimateBoth(data.input,group.input,x), mc.cores=4)
+#save(forecast,file="forecast_full.RData")
 
 #started at 12:10 pm 
 #ended at 1:23 pm 
@@ -101,8 +102,10 @@ save(forecast,file="forecast.RData")
 
 #started parallel at 2:37 pm 
 #ended at ?? 
-#forecast_metrics = future_sapply(months, function(x) estimateBoth(data.input,group.input,x)) 
-#save(forecast_metrics,file="forecast1.RData")
+print("starting")
+forecast_metrics = future_sapply(months, function(x) estimateBoth(data.input,group.input,x)) 
+print("done")
+save(forecast_metrics,file="forecast1.RData")
 
 #save(forecast_metrics,file="forecast2.RData")
 
