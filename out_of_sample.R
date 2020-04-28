@@ -3,7 +3,7 @@ source("utils.R")
 library(future.apply)
 #library(parallel)
 options(future.globals.maxSize = +Inf)
-plan(multiprocess(workers=10))
+plan(multiprocess(workers=1))
 
 
 estimateBoth <- function(data.input,group.input,step) { 
@@ -82,7 +82,7 @@ group.input <- as.numeric(factor(data$YYYYMM))
 data.input <- data.input[,vars]
 
 #360:379
-months=360:379
+months=374:374
 #months2 = 363:365
 
 #forecast = mclapply(months,FUN=function(x) estimateBoth(data.input,group.input,x), mc.cores=4)
@@ -105,7 +105,7 @@ months=360:379
 print("starting")
 forecast_metrics = future_sapply(months, function(x) estimateBoth(data.input,group.input,x)) 
 print("done")
-save(forecast_metrics,file="forecast1.RData")
+#save(forecast_metrics,file="forecast1.RData")
 
 #save(forecast_metrics,file="forecast2.RData")
 

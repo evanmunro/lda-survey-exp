@@ -11,10 +11,14 @@ data.input <- data.input[,vars]
 
 
 
-load(file="forecast2.RData")
+load(file="forecast_full.RData")
+load(file="forecast1.RData")
+forecast = cbind(forecast_metrics,sapply(forecast,unlist))
+
 data.unemp <- data.input[,"UNEMP"]
 unemp.t = matrix(0,nrow=4,ncol=length(steps))
 i=1
+steps=360:379
 for (step in steps) {
   unemp.yr = data.unemp[group.input==step]
   unemp.yr = as.vector(table(unemp.yr)/sum(table(unemp.yr)))
@@ -22,10 +26,15 @@ for (step in steps) {
   i=i+1
 }
 
-data.plot = data.frame(  month= steps, 
-                         true_data = unemp.t[3,], 
-                         static_model = forecast_metrics[4,],
-                         dynamic_model = forecast_metrics[9,])
+months = unique(data$YYYYMM)[steps]
+
+months = paste0(months,"01")
+months = as.Date(months,"%Y %m %d")
+
+data.plot = data.frame(  month= months, 
+                        true_data = unemp.t[1,], 
+                         static_model = forecast[2,],
+                         dynamic_model = forecast[7,])
 
 data.long = reshape2::melt(data.plot,id.vars=c("month"))
 

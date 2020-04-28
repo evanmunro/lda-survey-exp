@@ -17,7 +17,9 @@ plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
     questions = 1:J
   }
   for (j in 1:J) {
+    print(betas[[j]])
     beta_mat = t(betas[[j]])
+
     L_j = nrow(beta_mat)
     beta_df = data.frame(beta_mat)
     colnames(beta_df) = paste("K",1:K,sep="")
@@ -33,10 +35,11 @@ plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
       }
     }
     if(!is.null(questions)) {
-      title = paste("Q_",questions[j],sep="")
+      title = paste("QS_",questions[j],sep="")
     }
     beta_df$response = factor(x)
     data_long = reshape2::melt(beta_df,id.vars=c("response"))
+
 
     colnames(data_long) = c("Response","Class","Probability")
     filename  = paste(path,title,".pdf",sep="")
