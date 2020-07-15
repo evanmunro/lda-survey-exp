@@ -5,9 +5,9 @@ data <- card.data
 groups <- paste(data$LIBCRD14,data$SINMOM14,sep="")
 groups <- as.numeric(factor(groups))
 data <- data[!data$NOROTTER,]
-auxiliary <- c("rotter_A","rotter_B","rotter_C","rotter_D","rotter_E","rotter_F",
-               "rotter_G","rotter_H","rotter_I","rotter_J","rotter_K",
-               "subj_liked","subj_dislik","attitude_hs")
+auxiliary <- c("rotter_A", "rotter_B", "rotter_C", "rotter_D", "rotter_E", "rotter_F",
+               "rotter_G", "rotter_H", "rotter_I", "rotter_J", "rotter_K",
+               "subj_liked", "subj_dislik", "attitude_hs")
 aux.data <- data[,auxiliary]
 
 checkSparsity(aux.data, limit=0.05)
@@ -63,7 +63,7 @@ tail(sort(raoCalc))
 #examine convergence of MCMC chain
 #plot(posterior$pi[1,1,],type="l")
 
-#check that heterogeneity in returns does not appear in observed heterogeneity
+#check heterogeneity in returns based on observed heterogeneity
 base1 = "LWAGE76~BLACK+EXP76 +EXP762+SMSA76R+REG76R+ED76*LIBCRD14*SINMOM14"
 summary(lm(base1,data=data))
 

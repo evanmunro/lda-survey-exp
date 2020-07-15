@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, Jul 15, 2020 - 09:55:32
+% Date and time: Wed, Jul 15, 2020 - 12:24:45
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
