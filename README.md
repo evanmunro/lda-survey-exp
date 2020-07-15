@@ -1,4 +1,4 @@
-### Replication code for "Latent Dirichlet Analysis of Categorical Survey Expectations"
+### Replication code for "Latent Dirichlet Analysis of Categorical Survey Responses"
 #### Author: Evan Munro and Serena Ng
 
 This repository contains data and code for our [paper](https://arxiv.org/abs/1910.04883), which uses hierarchical bayesian latent class models to summarize and interpret heterogeneity in categorical subjective expectations data.
@@ -67,8 +67,8 @@ Table 1 is saved in TeX format as `table1.txt`.
 
 #### Reproducing Data Cleaning, Model Estimation and Simulations  
 
-1. `Rscript mich_analysis.R` re-estimates LDA-DE on the Michigan data and saves the model posterior
+1. `Rscript mich_analysis.R` re-estimates LDA-DS on the Michigan data and saves the model posterior
 in `posteriors/mich_estimate.RData`
-2. `Rscript dhs_analysis.R` re-estimates LDA-E on the Card data and saves the model posterior in
+2. `Rscript dhs_analysis.R` re-estimates LDA-S on the Card data and saves the model posterior in
 `posteriors/card_estimate.RData`
 3. `Rscript simulations.R` runs the simulations described verbally in Section 4.3 in the paper
