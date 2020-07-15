@@ -1,0 +1,2387 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      CODEBOOK
+
+
+                                Surveys of Consumers
+                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      Surveys of Consumers                                              Page i
+
+
+                                      CONTENTS
+
+
+      item                                                                page
+
+      CASEID             CASE IDENTIFICATION NUMBER                          1
+      YYYYMM             SURVEY YEAR & MONTH                                 1
+      YYYYQ              SURVEY YEAR & QUARTER                               1
+      YYYY               SURVEY YEAR                                         1
+      ID                 INTERVIEW ID                                        1
+      IDPREV             PREVIOUS ID IN RDD                                  1
+      DATEPR             DATE OF PREVIOUS INTERVIEW                          2
+      ICS                INDEX OF CONSUMER SENTIMENT                         2
+      ICC                INDEX OF CURRENT ECONOMIC CONDITIONS                2
+      ICE                INDEX OF CONSUMER EXPECTATIONS                      2
+      PAGO               PERSONAL FINANCES B/W YEAR AGO                      3
+      PAGOR1             REASONS: FINANCES B/W YR AGO (1)                    4
+      PAGOR2             REASONS: FINANCES B/W YR AGO (2)                    5
+      PAGO5              PERSONAL FINANCES B/W YEAR AGO                      6
+      PEXP               PERSONAL FINANCES B/W NEXT YEAR                     6
+      PEXP5              PERSONAL FINANCES B/W IN 5YRS                       7
+      INEXQ1             FAMILY INCOME U/D NEXT YEAR                         7
+      INEXQ2             FAMILY INCOME % U/D NEXT YEAR                       7
+      INEX               FAMILY INCOME EXPECTATIONS 1 YEAR RECODED           8
+      RINC               REAL FAMILY INCOME NEXT 1-2 YEARS                   8
+      BAGO               ECONOMY BETTER/WORSE YEAR AGO                       8
+      BEXP               ECONOMY BETTER/WORSE NEXT YEAR                      9
+      BUS12              ECONOMY GOOD/BAD NEXT YEAR                          9
+      BUS5               ECONOMY GOOD/BAD NEXT 5 YEARS                      10
+      NEWS1              NEWS HEARD OF CHANGES IN BUS COND (1)              10
+      NEWS2              NEWS HEARD OF CHANGES IN BUS COND (2)              10
+      UNEMP              UNEMPLOYMENT MORE/LESS NEXT YEAR                   11
+      GOVT               GOVERNMENT ECONOMIC POLICY                         11
+      RATEX              INTEREST RATES UP/DOWN NEXT YEAR                   12
+      PX1Q1              PRICES UP/DOWN NEXT YEAR                           12
+      PX1Q2              PRICES % UP/DOWN NEXT YEAR                         13
+      PX1                PRICE EXPECTATIONS 1YR RECODED                     13
+      PX5Q1              PRICES UP/DOWN NEXT 5 YEARS                        13
+      PX5Q2              PRICES % UP/DOWN NEXT 5 YEARS                      14
+      PX5                PRICE EXPECTATIONS 5YR RECODED                     14
+      DUR                DURABLES BUYING ATTITUDES                          14
+      DURRN1             REASONS: DURABLES BUYING ATTITUDES (1)             15
+      DURRN2             REASONS: DURABLES BUYING ATTITUDES (2)             15
+      HOM                HOME BUYING ATTITUDES                              15
+      HOMRN1             REASONS: HOME BUYING ATTITUDES (1)                 15
+      HOMRN2             REASONS: HOME BUYING ATTITUDES (2)                 16
+      SHOM               G/B SELL HOUSE                                     16
+      SHOMRN1            WHY G/B SELL HOUSE (1)                             16
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page ii
+
+
+      item                                                                page
+
+      SHOMRN2            WHY G/B SELL HOUSE (2)                             16
+      CAR                VEHICLE BUYING ATTITUDES                           17
+      CARRN1             REASONS: VEH BUYING ATTITUDES (1)                  17
+      CARRN2             REASONS: VEH BUYING ATTITUDES (2)                  17
+      INCOME             TOTAL HOUSEHOLD INCOME - CURRENT DOLLARS           17
+      INCQFM             INCOME: OPEN OR BRACKET FORMAT                     18
+      YTL10              INCOME BOTTOM 10%                                  18
+      YTL90              INCOME TOP 10%                                     18
+      YTL50              INCOME ABOVE/BELOW MEDIAN                          18
+      YTL5               INCOME QUINTILES                                   19
+      YTL4               INCOME QUARTILES                                   19
+      YTL3               INCOME TERCILES                                    19
+      HOMEOWN            OWN/RENT HOME                                      20
+      HOMEAMT            MARKET VALUE OF HOME                               20
+      HOMEQFM            MARKET VALUE OF HOME: OPEN OR BRACKET FORMAT       20
+      HTL10              HOME VALUE BOTTOM 10%                              20
+      HTL90              HOME VALUE TOP 10%                                 21
+      HTL50              HOME VALUE ABOVE/BELOW MEDIAN                      21
+      HTL5               HOME VALUE QUINTILES                               21
+      HTL4               HOME VALUE QUARTILES                               22
+      HTL3               HOME VALUE TERCILES                                22
+      HOMEVAL            HOME VALUE UP/DOWN                                 22
+      HOMPX1Q1           HOME VALUE UP/DOWN NEXT YEAR                       23
+      HOMPX1Q2           HOME VALUE % UP/DOWN NEXT YEAR                     23
+      HOMPX1             HOME PRICE EXPECTATIONS 1YR RECODED                23
+      HOMPX5Q1           HOME PRICES UP/DOWN NEXT 5 YEARS                   24
+      HOMPX5Q2           HOME PRICES % UP/DOWN NEXT 5 YEARS                 24
+      HOMPX5             HOME PRICE EXPECTATIONS 5YR RECODED                24
+      INVEST             HAVE STOCKS                                        25
+      INVAMT             INVESTMENT VALUE                                   25
+      INVQFM             STOCKS VALUE: OPEN OR BRACKET FORMAT               25
+      STL10              STOCK INVESTMENT AMOUNT BOTTOM 10%                 26
+      STL90              STOCK INVESTMENT AMOUNT TOP 10%                    26
+      STL50              STOCK INVESTMENT AMOUNT ABOVE/BELOW MEDIAN         26
+      STL5               STOCK INVESTMENT AMOUNT QUINTILES                  27
+      STL4               STOCK INVESTMENT AMOUNT QUARTILES                  27
+      STL3               STOCK INVESTMENT AMOUNT TERCILES                   27
+      AGE                AGE OF RESPONDENT                                  28
+      BIRTHM             MONTH OF BIRTH                                     28
+      BIRTHY             YEAR OF BIRTH                                      28
+      REGION             REGION OF RESIDENCE                                29
+      SEX                SEX OF RESPONDENT                                  29
+      MARRY              MARITAL STATUS OF RESPONDENT                       29
+      NUMKID             NUMBER OF CHILDREN <18 IN HOUSEHOLD                30
+      NUMADT             NUMBER OF ADULTS 18+ IN HOUSEHOLD                  30
+      EDUC               EDUCATION OF RESPONDENT                            30
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                            Page iii
+
+
+      item                                                                page
+
+      ECLGRD             EDUCATION: COLLEGE GRADUATE                        31
+      EHSGRD             EDUCATION: HIGH SCHOOL GRADUATE                    31
+      EGRADE             EDUCATION: HIGHEST GRADE COMPLETED                 31
+      VEHOWN             OWN/LEASE VEHICLE                                  32
+      VEHNUM             NUMBER OF VEHICLES OWNED/LEASED                    32
+      GASPX1             GAS PRICES UP/DOWN NEXT 5 YEARS                    32
+      GASPX2             PERCENT GAS PRICES UP/DOWN 5 YR                    33
+      GAS5               GAS PRICE EXPECTATIONS 5 YR RECODED                33
+      GAS1PX1            GAS PRICES UP/DOWN NEXT 12 MONTHS                  33
+      GAS1PX2            PERCENT GAS PRICES UP/DOWN 12 MO                   34
+      GAS1               GAS PRICE EXPECTATIONS 12 MO RECODED               34
+      PINC               CHANCE OF Y INCREASE IN 5 YEARS                    34
+      PINC2              PERCENT CHANCE OF INCOME INCREASE                  35
+      PJOB               CHANCE WILL LOSE JOB IN 5 YEARS                    35
+      PSSA               CHANCE WILL HAVE SOCIAL SECURITY                   35
+      PCRY               CHANCE WILL HAVE COMFORTABLE RETIREMENT            36
+      PSTK               PERCENT CHANCE OF INVEST INCREASE 1 YEAR           36
+      WT                 HOUSEHOLD HEAD WEIGHT (MEAN=1)                     36
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 1
+
+
+      CASEID             CASE IDENTIFICATION NUMBER
+
+           Data type: numeric
+           Record/columns: 1/1-6
+
+      ________________________________________________________________________
+
+      YYYYMM             SURVEY YEAR & MONTH
+
+           Survey Year & Month
+
+           Data type: numeric
+           Record/columns: 1/8-13
+
+      ________________________________________________________________________
+
+      YYYYQ              SURVEY YEAR & QUARTER
+
+           Survey Year & Quarter
+
+           Data type: numeric
+           Record/columns: 1/15-19
+
+      ________________________________________________________________________
+
+      YYYY               SURVEY YEAR
+
+           Survey Year
+
+           Data type: numeric
+           Record/columns: 1/21-24
+
+      ________________________________________________________________________
+
+      ID                 INTERVIEW ID
+
+           Interview ID
+
+           Data type: numeric
+           Record/columns: 1/26-29
+
+      ________________________________________________________________________
+
+      IDPREV             PREVIOUS ID IN RDD
+
+           Previous ID
+
+           Data type: numeric
+           Record/columns: 1/31-34
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 2
+
+
+      DATEPR             DATE OF PREVIOUS INTERVIEW
+
+           Previous Date
+
+           Data type: numeric
+           Record/columns: 1/36-41
+
+      ________________________________________________________________________
+
+      ICS                INDEX OF CONSUMER SENTIMENT
+
+           The Index of Consumer Sentiment
+
+           Data type: numeric
+           Decimals: 2
+           Record/columns: 1/43-48
+
+      ________________________________________________________________________
+
+      ICC                INDEX OF CURRENT ECONOMIC CONDITIONS
+
+           The Index of Current Economic Conditions
+
+           Data type: numeric
+           Decimals: 2
+           Record/columns: 1/50-55
+
+      ________________________________________________________________________
+
+      ICE                INDEX OF CONSUMER EXPECTATIONS
+
+           The Index of Consumer Expectations
+
+           Data type: numeric
+           Decimals: 2
+           Record/columns: 1/57-62
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 3
+
+
+      PAGO               PERSONAL FINANCES B/W YEAR AGO
+
+           We are interested in how people are getting along financially
+           these days. Would you say that you are better off or worse off
+           financially than you were a year ago?
+
+           VALUE  LABEL
+               1  Better now
+               3  Same
+               5  Worse now
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/64
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 4
+
+
+      PAGOR1             REASONS: FINANCES B/W YR AGO (1)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           VALUE  LABEL
+               0  No change and no pro-con reason given
+              10  FAV Better pay
+              11  FAV Higher income from self-employment or property
+              12  FAV More work, hence more income
+              13  FAV Increased contributions from outside FU
+              14  FAV Lower prices
+              15  FAV Lower taxes; low or unchanged taxes
+              16  FAV Decreased expenses
+              18  FAV Higher interest rates; tight credit
+              19  FAV Better asset position
+              20  FAV Debt, interest or debt payments low or lower
+              21  FAV Change in family composition - higher income or better off
+              23  FAV Good times, no recession (not codeable above)
+              27  FAV Other reasons for making FU better off
+              38  FAV Reference to government economic policy
+              39  FAV Income tax refund
+              50  UNFAV Lower pay
+              51  UNFAV Lower income from self-employment or property
+              52  UNFAV Less work, hence less income
+              53  UNFAV Decreased/Unchanged contributions from outside FU
+              54  UNFAV High(er) prices
+              55  UNFAV Higher interest rates; tight credit
+              56  UNFAV High, higher taxes (except 57)
+              57  UNFAV Income taxes
+              58  UNFAV Increased expenses; more people to be supported by FU
+              59  UNFAV Worse asset position
+              60  UNFAV Debt
+              61  UNFAV Change in family composition - lower income or worse off
+              63  UNFAV Bad times, recession (not codeable above)
+              64  UNFAV Strike(s)-- not codeable in 52
+              67  UNFAV Other reasons for making FU worse off
+              78  UNFAV Reference to government economic policy
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/66-67
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 5
+
+
+      PAGOR2             REASONS: FINANCES B/W YR AGO (2)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           VALUE  LABEL
+               0  No second mention
+              10  FAV Better pay
+              11  FAV Higher income from self-employment or property
+              12  FAV More work, hence more income
+              13  FAV Increased contributions from outside FU
+              14  FAV Lower prices
+              15  FAV Lower taxes; low or unchanged taxes
+              16  FAV Decreased expenses
+              18  FAV Higher interest rates; tight credit
+              19  FAV Better asset position
+              20  FAV Debt, interest or debt payments low or lower
+              21  FAV Change in family composition - higher income or better off
+              23  FAV Good times, no recession (not codeable above)
+              27  FAV Other reasons for making FU better off
+              38  FAV Reference to government economic policy
+              39  FAV Income tax refund
+              50  UNFAV Lower pay
+              51  UNFAV Lower income from self-employment or property
+              52  UNFAV Less work, hence less income
+              53  UNFAV Decreased/Unchanged contributions from outside FU
+              54  UNFAV High(er) prices
+              55  UNFAV Higher interest rates; tight credit
+              56  UNFAV High, higher taxes (except 57)
+              57  UNFAV Income taxes
+              58  UNFAV Increased expenses; more people to be supported by FU
+              59  UNFAV Worse asset position
+              60  UNFAV Debt
+              61  UNFAV Change in family composition - lower income or worse off
+              63  UNFAV Bad times, recession (not codeable above)
+              64  UNFAV Strike(s)-- not codeable in 52
+              67  UNFAV Other reasons for making FU worse off
+              78  UNFAV Reference to government economic policy
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/69-70
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 6
+
+
+      PAGO5              PERSONAL FINANCES B/W YEAR AGO
+
+           Now thinking back 5 years, would you say that you are better
+           off or worse off financially now than you were 5 years ago?
+
+           VALUE  LABEL
+               1  Better now
+               3  Same
+               5  Worse now
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/72
+
+      ________________________________________________________________________
+
+      PEXP               PERSONAL FINANCES B/W NEXT YEAR
+
+           Now looking ahead--do you think that a year from now you will
+           be better off financially, or worse off, or just about the
+           same as now?
+
+           VALUE  LABEL
+               1  Will be better off
+               3  Same
+               5  Will be worse off
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/74
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 7
+
+
+      PEXP5              PERSONAL FINANCES B/W IN 5YRS
+
+           And 5 years from now, do you expect that you (and your family living there)
+           will be better off financially, worse off financially, or just about
+           the same as now?
+
+           VALUE  LABEL
+               1  Will be better off
+               3  Same
+               5  Will be worse off
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/76
+
+      ________________________________________________________________________
+
+      INEXQ1             FAMILY INCOME U/D NEXT YEAR
+
+           During the next 12 months, do you expect your income to be
+           higher or lower than during the past year?
+
+           VALUE  LABEL
+               1  Higher
+               3  About the same
+               5  Lower
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/78
+
+      ________________________________________________________________________
+
+      INEXQ2             FAMILY INCOME % U/D NEXT YEAR
+
+           By about what percent do you expect your income to
+           (increase/decrease) during the next 12 months?
+
+           VALUE  LABEL
+              95  95% or more
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/80-81
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 8
+
+
+      INEX               FAMILY INCOME EXPECTATIONS 1 YEAR RECODED
+
+           Income expectations for next 12 months
+
+           VALUE  LABEL
+             -97  DK how much down
+              96  DK how much up
+              98  DK whether up or down
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: -97,96-*
+           Record/columns: 1/83-85
+
+      ________________________________________________________________________
+
+      RINC               REAL FAMILY INCOME NEXT 1-2 YEARS
+
+           During the next year or two, do you expect that your income
+           will go up more than prices will go up, about the same, or
+           less than prices will go up?
+
+           VALUE  LABEL
+               1  Income up more than prices
+               3  Income up same as prices
+               5  Income up less than prices
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/87
+
+      ________________________________________________________________________
+
+      BAGO               ECONOMY BETTER/WORSE YEAR AGO
+
+           Would you say that at the present time business conditions
+           are better or worse than they were a year ago?
+
+           VALUE  LABEL
+               1  Better now
+               3  About the same
+               5  Worse now
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/89
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                              Page 9
+
+
+      BEXP               ECONOMY BETTER/WORSE NEXT YEAR
+
+           And how about a year from now, do you expect that in the
+           country as a whole business conditions will be better, or
+           worse than they are at present, or just about the same?
+
+           VALUE  LABEL
+               1  Better a year from now
+               3  About the same
+               5  Worse a year from now
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/91
+
+      ________________________________________________________________________
+
+      BUS12              ECONOMY GOOD/BAD NEXT YEAR
+
+           Now turning to business conditions in the
+           country as a whole--do you think that during the next 12
+           months we'll have good times financially, or bad times,
+           or what?
+
+           VALUE  LABEL
+               1  Good times
+               2  Good with qualifications
+               3  Pro-con
+               4  Bad with qualifications
+               5  Bad times
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/93
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 10
+
+
+      BUS5               ECONOMY GOOD/BAD NEXT 5 YEARS
+
+           Looking ahead, which would you say is more likely -- that
+           in the country as a whole we'll have continuous good times
+           during the next 5 years or so, or that we will have periods
+           of widespread unemployment or depression, or what?
+
+           VALUE  LABEL
+               1  Good times
+               2  Good with qualifications
+               3  Pro-con
+               4  Bad with qualifications
+               5  Bad times
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/95-96
+
+      ________________________________________________________________________
+
+      NEWS1              NEWS HEARD OF CHANGES IN BUS COND (1)
+
+           During the last few months, have you heard of any favorable
+           or unfavorable changes in business conditions? What did you
+           hear?
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/98-99
+
+      ________________________________________________________________________
+
+      NEWS2              NEWS HEARD OF CHANGES IN BUS COND (2)
+
+           During the last few months, have you heard of any favorable
+           or unfavorable changes in business conditions? What did you
+           hear?
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/101-102
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 11
+
+
+      UNEMP              UNEMPLOYMENT MORE/LESS NEXT YEAR
+
+           How about people out of work during the coming 12 months --
+           do you think that there will be more unemployment than now,
+           about the same, or less?
+
+           VALUE  LABEL
+               1  More unemployment
+               3  About the same
+               5  Less unemployment
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/104
+
+      ________________________________________________________________________
+
+      GOVT               GOVERNMENT ECONOMIC POLICY
+
+           As to the economic policy of the government -- I mean steps
+           taken to fight inflation or unemployment -- would you say the
+           government is doing a good job, only fair, or a poor job?
+
+           VALUE  LABEL
+               1  Good job
+               3  Only fair
+               5  Poor job
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/106
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 12
+
+
+      RATEX              INTEREST RATES UP/DOWN NEXT YEAR
+
+           No one can say for sure, but what do you think will happen to
+           interest rates for borrowing money during the next 12
+           months--will they go up, stay the same, or go down?
+
+           VALUE  LABEL
+               1  Go up
+               3  Stay the same
+               5  Go down
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/108
+
+      ________________________________________________________________________
+
+      PX1Q1              PRICES UP/DOWN NEXT YEAR
+
+           During the next 12 months, do you think that prices in
+           general will go up, or go down, or stay where they are now?
+
+           VALUE  LABEL
+               1  Go up
+               2  Go up (at same rate)
+               3  Same
+               5  Go down
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/110
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 13
+
+
+      PX1Q2              PRICES % UP/DOWN NEXT YEAR
+
+           By about what percent do you expect prices to go (up/down) on
+           the average, during the next 12 months?
+
+           VALUE  LABEL
+              95  95% or more
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/112-113
+
+      ________________________________________________________________________
+
+      PX1                PRICE EXPECTATIONS 1YR RECODED
+
+           Price expectations for next 12 months recoded
+
+           VALUE  LABEL
+             -97  DK how much down
+              96  DK how much up
+              98  DK whether up or down
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: -97,96-*
+           Record/columns: 1/115-117
+
+      ________________________________________________________________________
+
+      PX5Q1              PRICES UP/DOWN NEXT 5 YEARS
+
+           What about the outlook for prices over the next 5 to 10
+           years?  Do you think prices will be higher, about the same,
+           or lower, 5 to 10 years from now?
+
+           VALUE  LABEL
+               1  Go up
+               2  Go up (at same rate)
+               3  Same
+               5  Go down
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/119
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 14
+
+
+      PX5Q2              PRICES % UP/DOWN NEXT 5 YEARS
+
+           By about what percent per year do you expect prices to go
+           (up/down) on the average, during the next 5 to 10 years?
+
+           VALUE  LABEL
+              95  95% or more
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/121-122
+
+      ________________________________________________________________________
+
+      PX5                PRICE EXPECTATIONS 5YR RECODED
+
+           Price expectations for next 5 years recoded
+
+           VALUE  LABEL
+             -97  DK how much down
+              96  DK how much up
+              98  DK whether up or down
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: -97,96-*
+           Record/columns: 1/124-126
+
+      ________________________________________________________________________
+
+      DUR                DURABLES BUYING ATTITUDES
+
+           Generally speaking, do you think now is a good or a bad
+           time for people to buy major household items?
+
+           VALUE  LABEL
+               1  Good
+               3  Pro-con
+               5  Bad
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/128
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 15
+
+
+      DURRN1             REASONS: DURABLES BUYING ATTITUDES (1)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/130-131
+
+      ________________________________________________________________________
+
+      DURRN2             REASONS: DURABLES BUYING ATTITUDES (2)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/133-134
+
+      ________________________________________________________________________
+
+      HOM                HOME BUYING ATTITUDES
+
+           Generally speaking, do you think now is a good time or a bad
+           time to buy a house?
+
+           VALUE  LABEL
+               1  Good
+               3  Pro-con
+               5  Bad
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/136
+
+      ________________________________________________________________________
+
+      HOMRN1             REASONS: HOME BUYING ATTITUDES (1)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/138-139
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 16
+
+
+      HOMRN2             REASONS: HOME BUYING ATTITUDES (2)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/141-142
+
+      ________________________________________________________________________
+
+      SHOM               G/B SELL HOUSE
+
+           What about selling a house -- generally speaking, do you think now is a
+           good time or a bad time to sell a house?
+
+           VALUE  LABEL
+               1  GOOD
+               3  PRO-CON
+               5  BAD
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/144
+
+      ________________________________________________________________________
+
+      SHOMRN1            WHY G/B SELL HOUSE (1)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Record/columns: 1/146-147
+
+      ________________________________________________________________________
+
+      SHOMRN2            WHY G/B SELL HOUSE (2)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Record/columns: 1/149-150
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 17
+
+
+      CAR                VEHICLE BUYING ATTITUDES
+
+           Speaking now of the automobile market -- do you think the
+           next 12 months or so will be a good time or a bad time to buy
+           a vehicle, such as a car, pickup, van, or sport utility
+           vehicle?
+
+           VALUE  LABEL
+               1  Good
+               3  Pro-con
+               5  Bad
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/152
+
+      ________________________________________________________________________
+
+      CARRN1             REASONS: VEH BUYING ATTITUDES (1)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/154-155
+
+      ________________________________________________________________________
+
+      CARRN2             REASONS: VEH BUYING ATTITUDES (2)
+
+           Why do you say so?  (Are there any other reasons?)
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/157-158
+
+      ________________________________________________________________________
+
+      INCOME             TOTAL HOUSEHOLD INCOME - CURRENT DOLLARS
+
+           Now, thinking about your total income from all sources
+           (including your job), how much did you receive in the
+           previous year?
+
+           Data type: numeric
+           Record/columns: 1/160-165
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 18
+
+
+      INCQFM             INCOME: OPEN OR BRACKET FORMAT
+
+           The INCOME question was asked/coded in:
+
+           VALUE  LABEL
+               1  Income in open format (before 1990)/ Asked open format, answered open format
+               2  Asked open format, answered bracketed format: coded to midpoint
+               3  Income in bracket format (before 1990)/ Asked bracketed, answered bracketed: coded to midpoint
+
+           Data type: numeric
+           Record/column: 1/167
+
+      ________________________________________________________________________
+
+      YTL10              INCOME BOTTOM 10%
+
+           Income Percentiles (Bottom 10 Percent)
+
+           VALUE  LABEL
+               1  Bottom 10%
+               5  Top 90%
+
+           Data type: numeric
+           Record/column: 1/169
+
+      ________________________________________________________________________
+
+      YTL90              INCOME TOP 10%
+
+           Income Percentiles (Top 10 Percent)
+
+           VALUE  LABEL
+               1  Top 10%
+               5  Bottom 90%
+
+           Data type: numeric
+           Record/column: 1/171
+
+      ________________________________________________________________________
+
+      YTL50              INCOME ABOVE/BELOW MEDIAN
+
+           Income Percentiles (Above/below Median)
+
+           VALUE  LABEL
+               1  Bottom 50%
+               5  Top 50%
+
+           Data type: numeric
+           Record/column: 1/173
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 19
+
+
+      YTL5               INCOME QUINTILES
+
+           Income Percentiles (Quintiles)
+
+           VALUE  LABEL
+               1  Bottom 20%
+               2  21-40%
+               3  41-60%
+               4  61-80%
+               5  Top 20%
+
+           Data type: numeric
+           Record/column: 1/175
+
+      ________________________________________________________________________
+
+      YTL4               INCOME QUARTILES
+
+           Income Percentiles (Quartiles)
+
+           VALUE  LABEL
+               1  Bottom 25%
+               2  26-50%
+               3  51-75%
+               4  Top 25%
+
+           Data type: numeric
+           Record/column: 1/177
+
+      ________________________________________________________________________
+
+      YTL3               INCOME TERCILES
+
+           Income Percentiles (Terciles)
+
+           VALUE  LABEL
+               1  Bottom 33%
+               2  Middle 33%
+               3  Top 33%
+
+           Data type: numeric
+           Record/column: 1/179
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 20
+
+
+      HOMEOWN            OWN/RENT HOME
+
+           Do you (and your family living there) own your own home,
+           pay rent, or what?
+
+           VALUE  LABEL
+               1  Owns or is buying
+               2  Rent
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 99-*
+           Record/columns: 1/181-182
+
+      ________________________________________________________________________
+
+      HOMEAMT            MARKET VALUE OF HOME
+
+           What is the current market value of your home? (If sold it today, how
+           much would it bring in?)
+
+           Data type: numeric
+           Record/columns: 1/184-190
+
+      ________________________________________________________________________
+
+      HOMEQFM            MARKET VALUE OF HOME: OPEN OR BRACKET FORMAT
+
+           The Home Market value question was asked/coded in:
+
+           VALUE  LABEL
+               1  Asked open format, answered open format
+               2  Asked open format, answered bracketed format: coded to midpoint
+               3  Asked bracketed question, answered bracketed format: coded to midpoint
+
+           Data type: numeric
+           Record/column: 1/192
+
+      ________________________________________________________________________
+
+      HTL10              HOME VALUE BOTTOM 10%
+
+           Home Value Percentiles (Bottom 10 Percent)
+
+           VALUE  LABEL
+               1  Bottom 10%
+               5  Top 90%
+
+           Data type: numeric
+           Record/column: 1/194
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 21
+
+
+      HTL90              HOME VALUE TOP 10%
+
+           Home Value Percentiles (Top 10 Percent)
+
+           VALUE  LABEL
+               1  Top 10%
+               5  Bottom 90%
+
+           Data type: numeric
+           Record/column: 1/196
+
+      ________________________________________________________________________
+
+      HTL50              HOME VALUE ABOVE/BELOW MEDIAN
+
+           Home Value Percentiles (Above/below Median)
+
+           VALUE  LABEL
+               1  Bottom 50%
+               5  Top 50%
+
+           Data type: numeric
+           Record/column: 1/198
+
+      ________________________________________________________________________
+
+      HTL5               HOME VALUE QUINTILES
+
+           Home Value Percentiles (Quintiles)
+
+           VALUE  LABEL
+               1  Bottom 20%
+               2  21-40%
+               3  41-60%
+               4  61-80%
+               5  Top 20%
+
+           Data type: numeric
+           Record/column: 1/200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 22
+
+
+      HTL4               HOME VALUE QUARTILES
+
+           Home Value Percentiles (Quartiles)
+
+           VALUE  LABEL
+               1  Bottom 25%
+               2  26-50%
+               3  51-75%
+               4  Top 25%
+
+           Data type: numeric
+           Record/column: 1/202
+
+      ________________________________________________________________________
+
+      HTL3               HOME VALUE TERCILES
+
+           Home Value Percentiles (Terciles)
+
+           VALUE  LABEL
+               1  Bottom 33%
+               2  Middle 33%
+               3  Top 33%
+
+           Data type: numeric
+           Record/column: 1/204
+
+      ________________________________________________________________________
+
+      HOMEVAL            HOME VALUE UP/DOWN
+
+           Do you think the current value of your home--I mean, what it would
+           bring if you sold it today--has increased compared with a year ago,
+           has decreased compared with a year ago, or has it remained about the same?
+
+           VALUE  LABEL
+               1  Increased in value
+               3  Same
+               5  Decreased in value
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/206
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 23
+
+
+      HOMPX1Q1           HOME VALUE UP/DOWN NEXT YEAR
+
+           What do you think will happen to  the prices of homes like yours in your
+           community over the next 12 months? Will they increase, remain about the same,
+           or decrease?
+
+           VALUE  LABEL
+               1  Increase
+               3  About the same
+               5  Decrease
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/208
+
+      ________________________________________________________________________
+
+      HOMPX1Q2           HOME VALUE % UP/DOWN NEXT YEAR
+
+           By about what percent do you expect prices of homes like yours
+           in your community to go (up/down), on the average, over the
+           next 12 months?
+
+           VALUE  LABEL
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: 998-*
+           Record/columns: 1/210-212
+
+      ________________________________________________________________________
+
+      HOMPX1             HOME PRICE EXPECTATIONS 1YR RECODED
+
+           Home price expectations for next 12 months recoded
+
+           VALUE  LABEL
+            -997  DK how much down
+             996  DK how much up
+             998  DK whether up or down
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: -997,996-*
+           Record/columns: 1/214-217
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 24
+
+
+      HOMPX5Q1           HOME PRICES UP/DOWN NEXT 5 YEARS
+
+           What about the outlook for prices of homes like yours in your community over the next 5 years or so? Do you expect them to increase, remain about the same, or decrease?
+
+           VALUE  LABEL
+               1  Increase
+               3  Remain about the same
+               5  Decrease
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/219
+
+      ________________________________________________________________________
+
+      HOMPX5Q2           HOME PRICES % UP/DOWN NEXT 5 YEARS
+
+           By about what percent per year do you expect prices of homes like yours in your
+           community to go (up/down), on average, over the next 5 years or so?
+
+           VALUE  LABEL
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: 998-*
+           Record/columns: 1/221-223
+
+      ________________________________________________________________________
+
+      HOMPX5             HOME PRICE EXPECTATIONS 5YR RECODED
+
+           Home price expectations for next 5 years recoded
+
+           VALUE  LABEL
+            -997  DK how much down
+             996  DK how much up
+             998  DK whether up or down
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: -997,996-*
+           Record/columns: 1/225-228
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 25
+
+
+      INVEST             HAVE STOCKS
+
+           The next questions are about investments in the stock market.
+           First, do you (or any member of your family living there) have
+           any investments in the stock market, including any publicly
+           traded stock that is directly owned, stocks in mutual funds,
+           stocks in any of your retirement accounts, including
+           401(K)s, IRAs, or Keogh accounts?
+
+           VALUE  LABEL
+               1  Yes
+               5  No
+
+           Data type: numeric
+           Record/column: 1/230
+
+      ________________________________________________________________________
+
+      INVAMT             INVESTMENT VALUE
+
+           Cosidering all of your(family's) investments in the stock market,
+           overall about how much would your investments be worth today?
+
+           Data type: numeric
+           Record/columns: 1/232-239
+
+      ________________________________________________________________________
+
+      INVQFM             STOCKS VALUE: OPEN OR BRACKET FORMAT
+
+           The Stock Value question was asked/coded in:
+
+           VALUE  LABEL
+               1  Asked open format, answered open format
+               2  Asked open format, answered bracketed format: coded to midpoint
+               3  Asked bracketed format, answered bracketed format: coded to midpoint
+
+           Data type: numeric
+           Record/column: 1/241
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 26
+
+
+      STL10              STOCK INVESTMENT AMOUNT BOTTOM 10%
+
+           Income Percentiles (Bottom 10 Percent)
+
+           VALUE  LABEL
+               1  Bottom 10%
+               5  Top 90%
+
+           Data type: numeric
+           Record/column: 1/243
+
+      ________________________________________________________________________
+
+      STL90              STOCK INVESTMENT AMOUNT TOP 10%
+
+           Stock Percentiles (Top 10 Percent)
+
+           VALUE  LABEL
+               1  Top 10%
+               5  Top 90%
+
+           Data type: numeric
+           Record/column: 1/245
+
+      ________________________________________________________________________
+
+      STL50              STOCK INVESTMENT AMOUNT ABOVE/BELOW MEDIAN
+
+           Stock Percentiles (Above/below Median)
+
+           VALUE  LABEL
+               1  Bottom 50%
+               5  Top 50%
+
+           Data type: numeric
+           Record/column: 1/247
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 27
+
+
+      STL5               STOCK INVESTMENT AMOUNT QUINTILES
+
+           Stock Percentiles (Quintiles)
+
+           VALUE  LABEL
+               1  Bottom 20%
+               2  21-40%
+               3  41-60%
+               4  61-80%
+               5  Top 20%
+
+           Data type: numeric
+           Record/column: 1/249
+
+      ________________________________________________________________________
+
+      STL4               STOCK INVESTMENT AMOUNT QUARTILES
+
+           Stock Percentiles (Quartiles)
+
+           VALUE  LABEL
+               1  Bottom 25%
+               2  26-50%
+               3  51-75%
+               4  Top 25%
+
+           Data type: numeric
+           Record/column: 1/251
+
+      ________________________________________________________________________
+
+      STL3               STOCK INVESTMENT AMOUNT TERCILES
+
+           Stock Percentiles (Terciles)
+
+           VALUE  LABEL
+               1  Bottom 33%
+               2  Middle 33%
+               3  Top 33%
+
+           Data type: numeric
+           Record/column: 1/253
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 28
+
+
+      AGE                AGE OF RESPONDENT
+
+           Age of Respondent
+
+           VALUE  LABEL
+              97  97 or older
+
+           Data type: numeric
+           Record/columns: 1/255-256
+
+      ________________________________________________________________________
+
+      BIRTHM             MONTH OF BIRTH
+
+           What is the month and year of your birth?--MONTH
+
+           VALUE  LABEL
+               1  January
+               2  February
+               3  March
+               4  April
+               5  May
+               6  June
+               7  July
+               8  August
+               9  September
+              10  October
+              11  November
+              12  December
+
+           Data type: numeric
+           Record/columns: 1/258-259
+
+      ________________________________________________________________________
+
+      BIRTHY             YEAR OF BIRTH
+
+           What is the month and year of your birth?--YEAR
+
+           Data type: numeric
+           Record/columns: 1/261-264
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 29
+
+
+      REGION             REGION OF RESIDENCE
+
+           Region of Residence
+
+           VALUE  LABEL
+               1  West
+               2  North Central
+               3  Northeast
+               4  South
+
+           Data type: numeric
+           Record/column: 1/266
+
+      ________________________________________________________________________
+
+      SEX                SEX OF RESPONDENT
+
+           Sex of Respondent
+
+           VALUE  LABEL
+               1  Male
+               2  Female
+
+           Data type: numeric
+           Record/column: 1/268
+
+      ________________________________________________________________________
+
+      MARRY              MARITAL STATUS OF RESPONDENT
+
+           Are you currently married, (living with a
+           partner), separated, divorced, widowed, or have you never been
+           married?
+
+           VALUE  LABEL
+               1  Married/partner
+               2  Separated
+               3  Divorced
+               4  Widowed
+               5  Never married
+
+           Data type: numeric
+           Record/column: 1/270
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 30
+
+
+      NUMKID             NUMBER OF CHILDREN <18 IN HOUSEHOLD
+
+           How many members of your household are 17 years of age or
+           younger?
+
+           VALUE  LABEL
+               0  None
+
+           Data type: numeric
+           Record/column: 1/272
+
+      ________________________________________________________________________
+
+      NUMADT             NUMBER OF ADULTS 18+ IN HOUSEHOLD
+
+           Counting yourself, how many members of your household are 18
+           or older?
+
+           Data type: numeric
+           Record/column: 1/274
+
+      ________________________________________________________________________
+
+      EDUC               EDUCATION OF RESPONDENT
+
+           Education of Respondent
+
+           VALUE  LABEL
+               1  Grade 0-8 no hs diploma
+               2  Grade 9-12 no hs diploma
+               3  Grade 0-12 w/ hs diploma
+               4  Grade 13-17 no col degree
+               5  Grade 13-16 w/ col degree
+               6  Grade 17 W/ col degree
+
+           Data type: numeric
+           Record/column: 1/276
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 31
+
+
+      ECLGRD             EDUCATION: COLLEGE GRADUATE
+
+           Do you have a college degree?
+
+           VALUE  LABEL
+               1  Yes
+               5  No
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/278
+
+      ________________________________________________________________________
+
+      EHSGRD             EDUCATION: HIGH SCHOOL GRADUATE
+
+           Did you get a high school graduation diploma or pass a high
+           school equivalency test?
+
+           VALUE  LABEL
+               1  Yes
+               5  No
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/280
+
+      ________________________________________________________________________
+
+      EGRADE             EDUCATION: HIGHEST GRADE COMPLETED
+
+           What is the highest grade of school or year of college you
+           completed?
+
+           VALUE  LABEL
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/282-283
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 32
+
+
+      VEHOWN             OWN/LEASE VEHICLE
+
+           I would like to ask some specific questions about the
+           vehicles that you own or lease, and any company cars provided
+           for your personal use. First, do you own a car, pick-up, van,
+           sport utility vehicle, or motorhome?
+
+           VALUE  LABEL
+               1  Yes
+               5  No
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/285
+
+      ________________________________________________________________________
+
+      VEHNUM             NUMBER OF VEHICLES OWNED/LEASED
+
+           Altogether, how many cars or other vehicles do you own,
+           lease, or have provided by an employer for personal use?
+
+           VALUE  LABEL
+              98  DK
+              99  NA
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/287-288
+
+      ________________________________________________________________________
+
+      GASPX1             GAS PRICES UP/DOWN NEXT 5 YEARS
+
+           Do you think that the price of gasoline will go up during the next
+           five years, will gasoline prices go down, or will they stay about
+           the same as they are now?
+
+           VALUE  LABEL
+               1  Go up
+               3  Stay the same
+               5  Go down
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/290
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 33
+
+
+      GASPX2             PERCENT GAS PRICES UP/DOWN 5 YR
+
+           About how many cents per gallon do you think gasoline prices will
+           (increase/decrease) during the next five years compared to now?
+
+           VALUE  LABEL
+             995  995 cents or more
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: 998-*
+           Record/columns: 1/292-294
+
+      ________________________________________________________________________
+
+      GAS5               GAS PRICE EXPECTATIONS 5 YR RECODED
+
+           Gasoline price expectations for next 5 years recoded
+
+           VALUE  LABEL
+            -997  DK how much down
+             996  DK how much up
+             998  DK whether up or down
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: -997,996-*
+           Record/columns: 1/296-299
+
+      ________________________________________________________________________
+
+      GAS1PX1            GAS PRICES UP/DOWN NEXT 12 MONTHS
+
+           Now thinking only about the next twelve months, do you think that
+           the price of gasoline will go up during the next twelve months,
+           will gasoline prices go down, or will they stay about the same as they are now?
+
+           VALUE  LABEL
+               1  Go up
+               3  Stay the same
+               5  Go down
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/301
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 34
+
+
+      GAS1PX2            PERCENT GAS PRICES UP/DOWN 12 MO
+
+           About how many cents per gallon do you think gasoline prices will
+           (increase/decrease) during the next twelve months compared to now?
+
+           VALUE  LABEL
+             995  995 cents or more
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: 998-*
+           Record/columns: 1/303-305
+
+      ________________________________________________________________________
+
+      GAS1               GAS PRICE EXPECTATIONS 12 MO RECODED
+
+           Gasoline price expectations for next 12 months recoded
+
+           VALUE  LABEL
+            -997  DK how much down
+             996  DK how much up
+             998  DK whether up or down
+             999  NA
+
+           Data type: numeric
+           Missing-data codes: -997,996-*
+           Record/columns: 1/307-310
+
+      ________________________________________________________________________
+
+      PINC               CHANCE OF Y INCREASE IN 5 YEARS
+
+           What do you think the chances are that your income will increase by
+           more than the rate of inflation in the next five years or so?
+
+           VALUE  LABEL
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Decimals: 2
+           Missing-data codes: 998.00-*
+           Record/columns: 1/312-316
+
+
+
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 35
+
+
+      PINC2              PERCENT CHANCE OF INCOME INCREASE
+
+           Next I would like to ask you about your own personal income prospects in the next
+           twelve months. What do you think is the percent chance that your income
+           in the next twelve months will be higher than your income in the past twelve months?
+
+           VALUE  LABEL
+             996  Volunteered "No personal income"
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Decimals: 2
+           Missing-data codes: 998.00-*
+           Record/columns: 1/318-322
+
+      ________________________________________________________________________
+
+      PJOB               CHANCE WILL LOSE JOB IN 5 YEARS
+
+           During the next 5 years, what do you think the chances are that you
+           (or your husband/wife) will lose a job you wanted to keep?
+
+           VALUE  LABEL
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Decimals: 2
+           Missing-data codes: 998.00-*
+           Record/columns: 1/324-328
+
+      ________________________________________________________________________
+
+      PSSA               CHANCE WILL HAVE SOCIAL SECURITY
+
+           What do you think the chances are that [IF R UNDER AGE 65] (when you retire,)
+           your income from Social Security and job pensions will be adequate to maintain
+           your living standards?
+
+           VALUE  LABEL
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Decimals: 2
+           Missing-data codes: 998.00-*
+           Record/columns: 1/330-334
+
+
+
+
+
+                                   July 21, 2019
+
+
+
+      Surveys of Consumers                                             Page 36
+
+
+      PCRY               CHANCE WILL HAVE COMFORTABLE RETIREMENT
+
+           Compared with 5 years ago, do you think the chances that you will have a
+           comfortable retirement have gone up, gone down, or remained the same?
+
+           VALUE  LABEL
+               1  Gone up
+               3  Same
+               5  Gone down
+               8  DK
+               9  NA
+
+           Data type: numeric
+           Missing-data codes: 8-*
+           Record/column: 1/336
+
+      ________________________________________________________________________
+
+      PSTK               PERCENT CHANCE OF INVEST INCREASE 1 YEAR
+
+           What do you think is the percent chance that a one thousand dollar investment
+           in a diversified stock mutual fund will increase in value in the year ahead,
+           so that it is worth more than one thousand dollars one year from now?
+
+           VALUE  LABEL
+             998  DK
+             999  NA
+
+           Data type: numeric
+           Decimals: 2
+           Missing-data codes: 998.00-*
+           Record/columns: 1/338-342
+
+      ________________________________________________________________________
+
+      WT                 HOUSEHOLD HEAD WEIGHT (MEAN=1)
+
+           Household Head Weight (Mean=1)
+
+           Data type: numeric
+           Decimals: 2
+           Record/columns: 1/344-348
+
+
+
+
+
+
+
+
+
+
+
+                                   July 21, 2019

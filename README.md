@@ -3,7 +3,7 @@
 
 This repository contains data and code for our [paper](https://arxiv.org/abs/1910.04883), which uses hierarchical bayesian latent class models to summarize and interpret heterogeneity in categorical subjective expectations data.
 
- - The main repository folder contains the replication scripts 
+ - The main repository folder contains the replication scripts
  - `data` contains:
     1. Raw data and associated description files in text format for Michigan data
     2. Card data in text and RData format and description files in text format
@@ -14,6 +14,9 @@ This repository contains data and code for our [paper](https://arxiv.org/abs/191
 ## Replication Instructions
 
 #### Setup
+
+The replication code requires both an R and a Julia installation. Julia is required only
+for the plot in Figure 2.
 
 1. Clone our Github repository and change working directory to the repository.
 
@@ -29,25 +32,43 @@ cd lda-survey-exp
 devtools::install_github("evanmunro/dhlvm")
 ```  
 
-2. Make sure the following R packages are installed through CRAN
+3. Make sure the following required R packages are installed through CRAN
 
 ```
-MCMCpack, reshape2, ggplot2
+reshape2, ggplot2, future.apply, kableExtra, stargazer
+```
+
+4. Make sure the following Julia packages are installed
+```
+Plots, Distributions
 ```
 
 #### Reproducing Tables and Figures
+
+Tables and Figures are saved in `exhibits/`. To reproduce Figure 2, run:
+```
+julia exhibits.jl
+```
+
+which is saved as `dirichlet_density.pdf`.
+
+To reproduce Table 1 and Figures 3-5, run:
 
 ```
 Rscript exhibits.R
 ```
 
-will reproduce Tables 1-3 from the data files and saved model posteriors.
+Figure 3 combines `mich1_pi_ev.pdf`, `mich3_pi_ev.pdf`, and `mich4_pi_ev.pdf`.
+Figure 4 combines  `beta_PAGO.pdf`,`beta_PEXP.pdf`, `beta_BAGO.pdf`, `beta_BUS12.pdf`, `beta_DUR.pdf`, and `beta_UNEMP.pdf`  
+Figure 5 combines `beta_rotter_G.pdf`, `beta_rotter_H.pdf`, and `beta_rotter_K.pdf`.
+
+Table 1 is saved in TeX format as `table1.txt`.
+
 
 #### Reproducing Data Cleaning, Model Estimation and Simulations  
 
-1. `Rscript clean_card.R` processes the raw data from David Card's website and saves a cleaned version as `data/card_data.RData`
-2. `Rscript mich_analysis.R` re-estimates LDA-DE on the Michigan data and saves the model posterior
+1. `Rscript mich_analysis.R` re-estimates LDA-DE on the Michigan data and saves the model posterior
 in `posteriors/mich_estimate.RData`
-3. `Rscript dhs_analysis.R` re-estimates LDA-E on the Card data and saves the model posterior in
+2. `Rscript dhs_analysis.R` re-estimates LDA-E on the Card data and saves the model posterior in
 `posteriors/card_estimate.RData`
-4. `Rscript mcmc_simulations.R` runs the simulations described verbally in Section 4.3 in the paper
+3. `Rscript simulations.R` runs the simulations described verbally in Section 4.3 in the paper

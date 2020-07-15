@@ -1,0 +1,1080 @@
+R00001.00    [PG1]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             IDENTIFICATION CODE, 66
+ 
+IDENTIFICATION CODE  0001 THRU 5225 RESPONDENT'S RECORD NUMBER
+DESCRIPTION: THIS NUMBER WAS ASSIGNED ACCORDING TO THE RECORD NUMBER OF EACH 
+RESPONDENT ON THE TAPE. THE FIRST  RESPONDENT WAS ASSIGNED THE SERIAL NUMBER OF 
+0001: THE SECOND WAS ASSIGNED 0002, ETC.
+ 
+    5225           1 TO 5225: IDENTIFICATION CODE - YM COHORT
+  -------
+    5225
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    5225   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:           5225        Mean:                2613
+ 
+Lead In: None.
+Default Next Question: R00001.01
+--------------------------------------------------------------------------------
+R00045.00    [3]                                            Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HAS R BEEN OUT OF SCHOOL FOR AN ENTIRE YEAR SINCE AGE 14? 66
+ 
+Since you turned 14, were you ever out of school for an entire school year?
+UNIVERSE INFORMATION:
+'HIGH' IN 2, SEE R(44) *OR* COLLEGE IN 2, SEE R(44.)
+ 
+     134       1 YES   (Go To R00050.00)
+    2592       2 NO   (Go To R00054.00)
+     302       3 RESPONDENT IS 14   (Go To R00054.00)
+  -------
+    3028
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3028   VALID SKIP(-4)    2197     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00044.00[Default]
+Default Next Question: R00046.00
+--------------------------------------------------------------------------------
+R00055.00    [11A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             DOES R THINK HE WAS HURT BY LACK OF EDUCATION? 66
+ 
+Considering all the experience you have had in working or looking for jobs since
+leaving school, do you feel that not having more education has hurt you in any 
+way?
+UNIVERSE INFORMATION:
+'ALL OTHERS' IN CH A, SEE R (54.)
+ 
+     938       1 YES
+     946       0 NO
+  -------
+    1884
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1884   VALID SKIP(-4)    3341     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00054.00[Default]
+Default Next Question: R00056.00
+--------------------------------------------------------------------------------
+R00057.00    [12A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             DOES R DESIRE MORE EDUCATION? (NOT ENROLLED) 66
+ 
+If you could, would you like to get more education or training?
+UNIVERSE INFORMATION:
+'ALL OTHERS' IN CH A, SEE R (54.)
+ 
+    1629       1 YES
+     270       0 NO   (Go To R00060.00)
+  -------
+    1899
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1899   VALID SKIP(-4)    3326     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00056.00[Default]
+Default Next Question: R00058.00
+--------------------------------------------------------------------------------
+R00059.00    [12C]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             DOES R EXPECT TO GET MORE EDUCATION/TRAINING? 66
+ 
+Do you expect that you actually will get this education or training?
+UNIVERSE INFORMATION:
+'ALL OTHERS' IN CH A, SEE R (57.)
+ 
+     345       0 YES, EXPECTS TO BEGIN IN LESS THAN ONE YEAR
+     110       1 YES, EXPECTS TO BEGIN IN ONE YEAR
+      62       2 YES, EXPECTS TO BEGIN IN TWO YEARS
+      19       3 YES, EXPECTS TO BEGIN IN THREE YEARS
+      14       4 YES, EXPECTS TO BEGIN IN FOUR YEARS
+      25       5 YES, EXPECTS TO BEGIN IN FIVE YEARS
+     276       6 YES, EXPECTS TO BEGIN IN UNKNOWN PERIOD
+     111       7 NO, CANT AFFORD IT
+      55       8 NO, DONT HAVE TIME
+      39       9 NO, INCONVENIENCE TOO GREAT
+      53      10 NO, FAMILY RESPONSIBILITY
+      86      11 NO, OTHER REASON
+       1      12 NO, DONT KNOW WHY NOT
+      24      13 NO, NA FOR REASON
+  -------
+    1220
+ 
+Refusal(-1)            0
+Don't Know(-2)       384
+TOTAL =========>    1604   VALID SKIP(-4)    3621     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00058.00[Default]
+Default Next Question: R00060.00
+--------------------------------------------------------------------------------
+R00060.00    [13A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HAS R ANY BUSINESS/TECHNICAL TRAINING IN ADDITION TO REGULAR 
+             SCHOOL? 66
+ 
+Aside from regular school, did you ever take a program in a business college or 
+technical institute such as drafting, electronics training, etc?
+UNIVERSE INFORMATION:
+1) 'NO' IN 12A, SEE R(57.)
+2) 'YES' IN 12A, SEE R(57.) 
+ 
+REFER TO 1966 INTERVIEWERS' REFERENCE MANUAL FOR THE DISTINCTIONS AMONG 
+QUESTIONNAIRE ITEMS 13A, 14A, 15A, AND 16A.
+ 
+     250       1 YES
+    1653       0 NO   (Go To R00068.00)
+  -------
+    1903
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1903   VALID SKIP(-4)    3322     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00059.00[Default]  R00057.00[0:0]
+Default Next Question: R00061.00
+--------------------------------------------------------------------------------
+R00068.00    [14A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HAS R HAD COMPANY TRAINING FOR 6 PLUS WEEKS OTHER THAN REGULAR 
+             SCHOOL? 66
+ 
+Aside from regular school, did you ever take a full-time program lasting six 
+weeks or more at a company training school?
+UNIVERSE INFORMATION:
+1) 'NO' IN 13A, SEE R(60.)
+2) 'STILL GOING ON' IN 13F, SEE R(65.)
+3) 'YES' IN 13F, SEE R(65.)
+4. 'NO' IN 13F, SEE R(65.)  
+ 
+REFER TO 1966 INTERVIEWERS' REFERENCE MANUAL FOR THE DISTINCTIONS AMONG 
+QUESTIONNAIRE ITEMS 13A, 14A, 15A, AND 16A.
+ 
+      95       1 YES
+    1810       0 NO   (Go To R00075.00)
+  -------
+    1905
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1905   VALID SKIP(-4)    3320     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00067.00[Default]  R00060.00[0:0] R00065.00[3:3]
+Default Next Question: R00069.00
+--------------------------------------------------------------------------------
+R00072.00    [14E]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             DID R COMPLETE COMPANY TRAINING TAKEN OTHER THAN REGULAR SCHOOL? 66
+ 
+Did you finish or complete this program?
+UNIVERSE INFORMATION:
+'YES' IN 14A, SEE R(68.)
+ 
+      53       1 YES   (Go To R00074.00)
+      17       2 NO, DROPPED OUT
+      25       3 NO, STILL ENROLLED   (Go To R00075.00)
+  -------
+      95
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>      95   VALID SKIP(-4)    5130     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00071.00[Default]
+Default Next Question: R00073.00
+--------------------------------------------------------------------------------
+R00075.00    [15A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HAS R ANY VOCATIONAL TRAINING OTHER THAN ON THE JOB TRAINING? 66
+ 
+Aside from regular school, did you ever take apprenticeship training or any 
+other vocational or technical training (NOT counting on-the-job training given 
+informally)?
+UNIVERSE INFORMATION:
+1) 'NO' IN 14A, SEE R(68.)
+2) 'STILL GOING ON' IN 14E, SEE R(72.)
+3) 'YES' IN 14E, SEE R(72.)
+4) 'NO' IN 14E, SEE R(72.)
+ 
+REFER TO 1966 INTERVIEWERS' REFERENCE MANUAL FOR THE DISTINCTIONS AMONG 
+QUESTIONNAIRE ITEMS 13A, 14A, 15A, AND 16A.
+ 
+     181       1 YES
+    1721       0 NO   (Go To R00083.00)
+  -------
+    1902
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1902   VALID SKIP(-4)    3323     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00074.00[Default]  R00068.00[0:0] R00072.00[3:3]
+Default Next Question: R00076.00
+--------------------------------------------------------------------------------
+R00091.00    [17]                                           Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HAS R EVER SERVED IN THE ARMED FORCES? AS OF 66
+ 
+Have you ever served in the U.S. Armed Forces?
+UNIVERSE INFORMATION:
+1) 'ENROLLED IN SCHOOL OR A COLLEGE GRADUATE' IN CH A, SEE R(54.)
+2) 'NO' IN 16A  SEE R(83.)
+3) 'STILL GOING ON' IN 16F, SEE R(88.)
+4) 'YES' IN 16F, SEE R(88.)
+5. 'NO' IN 16F, SEE R(88.)
+ 
+      97       1 YES, NAVY
+     230       2 YES, ARMY
+      61       3 YES, AIR FORCE
+      34       4 YES, MARINES
+       5       5 YES, COAST GUARD
+    4596       6 NO, DID NOT SERVE   (Go To R00105.00)
+  -------
+    5023
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    5023   VALID SKIP(-4)     202     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00090.00[Default]  R00054.00[1:1] R00083.00[0:0] R00088.00[3:3]
+Default Next Question: R00092.00
+--------------------------------------------------------------------------------
+R00116.00    [24A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HIGH SCHOOL SUBJECT LIKED MOST, 66
+ 
+What high school subject did you enjoy (have you enjoyed) the most?
+UNIVERSE INFORMATION:
+'ALL OTHERS' IN CH B, SEE R(115.)
+ 
+      79       0 NONE   (Go To R00118.00)
+      59       1 FOREIGN LANGUAGES
+     542       2 HUMANITIES
+     611       3 SOCIAL SCIENCE
+     513       4 SCIENCE
+     780       5 MATH
+     112       6 COMMERCIAL
+     586       7 VOCATIONAL
+     113       8 OTHER
+  -------
+    3395
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3395   VALID SKIP(-4)    1830     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00115.00[Default]
+Default Next Question: R00117.00
+--------------------------------------------------------------------------------
+R00118.00    [25A]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             HIGH SCHOOL SUBJECT DISLIKED MOST, 66
+ 
+What high school subject did you dislike (have you disliked) the most?
+UNIVERSE INFORMATION:
+1) 'NONE' IN 24A, SEE R(116.)
+2) 'NONE' IN 24A, SEE R116.)
+ 
+     440       0 NONE   (Go To R00120.00)
+     176       1 FOREIGN LANGUAGES
+    1033       2 HUMANITIES
+     533       3 SOCIAL SCIENCE
+     324       4 SCIENCE
+     720       5 MATH
+      48       6 COMMERCIAL
+      42       7 VOCATIONAL
+      57       8 OTHER
+  -------
+    3373
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3373   VALID SKIP(-4)    1852     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00117.00[Default]  R00116.00[0:0]
+Default Next Question: R00119.00
+--------------------------------------------------------------------------------
+R00128.00    [28]                                           Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             ATTITUDE TOWARD HIGH SCHOOL EXPERIENCE, 66
+ 
+All things considered, how do you feel about your high school experience?
+UNIVERSE INFORMATION:
+1) 'NO' IN 26E, SEE R(124.)
+2) 'YES' IN 26E, SEE R(124.)
+ 
+    1501       1 LIKE IT VERY MUCH
+    1606       2 LIKE IT FAIRLY WELL
+     222       3 DISLIKE IT SOMEWHAT
+      73       4 DISLIKE IT VERY MUCH
+  -------
+    3402
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3402   VALID SKIP(-4)    1823     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00127.00[Default]
+Default Next Question: R00129.00
+--------------------------------------------------------------------------------
+R00137.00    [29D]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             TYPE OF COLLEGE DEGREE RECEIVED MOST RECENTLY, 66
+ 
+What degree did you receive?
+UNIVERSE INFORMATION:
+'OTHER' IN CH C, SEE R(129.)
+ 
+     559       0 DID NOT RECEIVE DEGREE   (Go To R00140.00)
+      43       1 ASSOCIATE
+     159       2 BACHELORS
+      12       3 MASTERS
+       2       4 DOCTORAL
+  -------
+     775
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     775   VALID SKIP(-4)    4450     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00136.00[Default]
+Default Next Question: R00138.00
+--------------------------------------------------------------------------------
+R00141.00    [29H]                                          Survey Year: 1966
+  PRIMARY VARIABLE
+
+ 
+             DID R RECEIVE FINANCIAL AID AT MOST RECENT COLLEGE ENROLLMENT? 66
+ 
+Did (do) you have a scholarship, fellowship, assistantship, or other type of 
+financial aid while enrolled at (most recent school given in 29A)
+UNIVERSE INFORMATION:
+1) 'DID NOT RECIEVE DEGREE' IN 29D, SEE R(137.)
+2) *NOT* 'DID NOT RECIEVE DEGREE' IN 29D, SEE R(137.)
+ 
+     371       1 YES
+     721       0 NO   (Go To R00144.00)
+  -------
+    1092
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1092   VALID SKIP(-4)    4133     NON-INTERVIEW(-5)       0
+ 
+Lead In: R00140.00[Default]
+Default Next Question: R00142.00
+--------------------------------------------------------------------------------
+R04411.00    [4B]                                           Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             DID R RECEIVE FINANCIAL AID THIS YEAR? 76
+ 
+Do you have a scholarship, fellowship, assistantship, or other type of financial
+aid this year?
+ 
+     181       1 YES
+     157       0 NO   (Go To R04419.00)
+  -------
+     338
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     338   VALID SKIP(-4)    3357     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04410.00[Default]
+Default Next Question: R04412.00
+--------------------------------------------------------------------------------
+R04430.00    [5D]                                           Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             HAS R EVER APPLIED TO ANY COLLEGE? 76
+ 
+Did you ever send an application to any college?
+ 
+     210       1 YES
+     957       0 NO   (Go To R04439.00)
+  -------
+    1167
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    1167   VALID SKIP(-4)    2528     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04429.00[Default]
+Default Next Question: R04431.00
+--------------------------------------------------------------------------------
+R04433.00    [5F]                                           Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             DID R EVER ENROLL IN COLLEGE? 76
+ 
+Did you enroll?
+ 
+       2       1 YES
+       2       0 NO
+  -------
+       4
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>       4   VALID SKIP(-4)    3691     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04432.00[Default]
+Default Next Question: R04439.00
+--------------------------------------------------------------------------------
+R04439.00    [7]                                            Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             WOULD R LIKE TO RETURN TO SCHOOL? 76
+ 
+Would you like to return to school?
+ 
+    1351       1 YES
+    1672       0 NO   (Go To R04442.00)
+  -------
+    3023
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3023   VALID SKIP(-4)     672     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04433.00[Default] R04438.00[Default]  R04422.00[0:11] R04422.00[13:13]
+          R04430.00[0:0] R04431.00[0:0] R04432.00[2:2]
+Default Next Question: R04440.00
+--------------------------------------------------------------------------------
+R04443.00    [9]                                            Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             AMOUNT OF ENCOURAGEMENT FROM FATHER TO CONTINUE EDUCATION PAST HIGH
+             SCHOOL, 76
+ 
+How much encouragement did your father give you to continue your education 
+beyond high school?
+ 
+      76       1 MUCH ENCOURAGEMENT
+      76       2 SOME ENCOURAGEMENT
+      60       3 NO ENCOURAGEMENT
+  -------
+     212
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     212   VALID SKIP(-4)    3483     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04442.00[Default]
+Default Next Question: R04444.00
+--------------------------------------------------------------------------------
+R04444.00    [10]                                           Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             AMOUNT OF ENCOURAGEMENT FROM MOTHER TO CONTINUE EDUCATION PAST HIGH
+             SCHOOL, 76
+ 
+How much encouragement did your mother give you to continue your education 
+beyond high school?
+ 
+     113       1 MUCH ENCOURAGEMENT
+      70       2 SOME ENCOURAGEMENT
+      30       3 NO ENCOURAGEMENT
+  -------
+     213
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     213   VALID SKIP(-4)    3482     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04443.00[Default]
+Default Next Question: R04445.00
+--------------------------------------------------------------------------------
+R04445.00    [11]                                           Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             AMOUNT OF HELP RECEIVED FROM PARENTS IN CONTINUING EDUCATION PAST 
+             HIGH SCHOOL, 76
+ 
+How much help in continuing your schooling after high school did you receive 
+from your parents?
+ 
+      51       1 MUCH HELP
+      47       2 SOME HELP
+     117       3 NO HELP
+  -------
+     215
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     215   VALID SKIP(-4)    3480     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04444.00[Default]
+Default Next Question: R04446.00
+--------------------------------------------------------------------------------
+R04446.00    [12]                                           Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             AMOUNT OF ENCOURAGEMENT FROM TEACHERS TO CONTINUE EDUCATION PAST 
+             HIGH SCHOOL, 76
+ 
+How much encouragement did your teachers and other adults in your high school 
+give you to continue your education beyond high school?
+ 
+      70       1 MUCH ENCOURAGEMENT
+      77       2 SOME ENCOURAGEMENT
+      69       3 NO ENCOURAGEMENT
+  -------
+     216
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     216   VALID SKIP(-4)    3479     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04445.00[Default]
+Default Next Question: R04447.00
+--------------------------------------------------------------------------------
+R04462.00    [14I]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             DOES R USE ADDITIONAL TRAINING ON CURRENT JOB 76?
+ 
+Do you use this training on your present job?
+ 
+     706       1 YES
+     204       2 NO
+      31       3 NOT EMPLOYED
+  -------
+     941
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     941   VALID SKIP(-4)    2754     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04461.00[Default]  R04454.00[3:3]
+Default Next Question: R04463.00
+--------------------------------------------------------------------------------
+R04465.00    [15A]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             HAS R EVER SERVED IN THE ARMED FORCES? AS OF 76
+ 
+Have you ever served in the US Armed Forces?
+ 
+    1249       1 YES
+    2444       0 NO   (Go To R04489.00)
+  -------
+    3693
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3693   VALID SKIP(-4)       2     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04464.00[Default]  R04463.00[2:3]
+Default Next Question: R04466.00
+--------------------------------------------------------------------------------
+R04501.00    [19A]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             HAS R BEEN SEEKING EMPLOYMENT IN PAST 4 WEEKS? 76 (UNEMPLOYED 76)
+ 
+Have you been looking for work  during the past 4 weeks?
+ 
+      99       1 YES
+     110       0 NO   (Go To R04516.00)
+  -------
+     209
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>     209   VALID SKIP(-4)    3486     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04497.00[0:0]
+Default Next Question: R04502.00
+--------------------------------------------------------------------------------
+R04572.00    [22J]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             HOURS & RATE OF PAY R PREFERS TO WORK, 76
+ 
+Some people would like to work more hours a week if they could be paid for it. 
+Others would prefer to work fewer hours even if they earned less. Would you 
+prefer more hours and more pay, fewer hours and less pay, or about the same 
+number of hours at the same pay?
+ 
+     929       1 MORE HOURS AND MORE PAY
+     143       2 FEWER HOURS AND LESS PAY
+    1894       3 SAME HOURS AT THE SAME PAY   (Go To R04575.00)
+  -------
+    2966
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    2966   VALID SKIP(-4)     729     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04561.10[Default]
+Default Next Question: R04573.00
+--------------------------------------------------------------------------------
+R04921.00    [49A]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT A, 76
+ 
+1) Many of the unhappy things in people's lives are partly due to bad luck.
+2) People's misfortunes result from the mistakes they make.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1745       1 MISFORTUNES RESULT OF MISTAKES - MUCH CLOSER
+    1198       2 MISFORTUNES RESULT OF MISTAKES - SLIGHTLY CLOSER
+     424       3 UNHAPPY THINGS DUE TO BAD LUCK - SLIGHTLY CLOSER
+     233       4 UNHAPPY THINGS DUE TO BAD LUCK - MUCH CLOSER
+  -------
+    3600
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3600   VALID SKIP(-4)      95     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04900.00[Default] R04911.00[Default] R04920.00[Default]  
+         R04905.00[7:10]
+Default Next Question: R04923.00
+--------------------------------------------------------------------------------
+R04923.00    [49B]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT B, 76
+ 
+1) In the long run, people get the respect they deserve in this world.
+2) Unfortunately, an individual's worth often passes unrecognized no matter how 
+hard he tries.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1201       1 PEOPLE GET RESPECT THEY DESERVE - MUCH CLOSER
+     951       2 PEOPLE GET RESPECT THEY DESERVE - SLIGHTLY CLOSER
+     754       3 INDIVIDUAL WORTH OFTEN UNRECOGNIZED - SLIGHTLY CLOSER
+     688       4 INDIVIDUAL WORTH OFTEN UNRECOGNIZED - MUCH CLOSER
+  -------
+    3594
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3594   VALID SKIP(-4)     101     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04921.00[Default]
+Default Next Question: R04925.00
+--------------------------------------------------------------------------------
+R04925.00    [49C]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT C, 76
+ 
+1) Without the right breaks, one cannot be an effective leader.
+2) Capable people who fail to become leaders have not taken advantage of their 
+opportunities.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1537       1 PEOPLE WHO FAIL DID NOT TAKE ADVANTAGE OF OPPORTUNITIES - MUCH 
+                      CLOSER
+    1143       2 PEOPLE WHO FAIL DID NOT TAKE ADVANTAGE OF OPPORTUNITIES - 
+                      SLIGHTLY CLOSER
+     538       3 WITHOUT BREAKS ONE CAN NOT BE AN EFFECTIVE LEADER - SLIGHTLY 
+                      CLOSER
+     371       4 WITHOUT BREAKS ONE CAN NOT BE AN EFFECTIVE LEADER - MUCH CLOSER
+  -------
+    3589
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3589   VALID SKIP(-4)     106     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04923.00[Default]
+Default Next Question: R04927.00
+--------------------------------------------------------------------------------
+R04927.00    [49D]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT D, 76
+ 
+1) Becoming a success is a matter of hard work; luck has little or nothing to do
+with it. 2) Getting a good job depends mainly on being in the right place at the
+right time.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1500       1 SUCCESS A MATTER OF HARD WORK - MUCH CLOSER
+     802       2 SUCCESS A MATTER OF HARD WORK - SLIGHTLY CLOSER
+     570       3 GOOD JOB DEPENDS ON RIGHT PLACE, RIGHT TIME - SLIGHTLY CLOSER
+     721       4 GOOD JOB DEPENDS ON RIGHT PLACE, RIGHT TIME - MUCH CLOSER
+  -------
+    3593
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3593   VALID SKIP(-4)     102     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04925.00[Default]
+Default Next Question: R04929.00
+--------------------------------------------------------------------------------
+R04929.00    [49E]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT E, 76
+ 
+1) What happens to me is my own doing.
+2) Sometimes I feel thing I don't have enough control over the direction my life
+is taking.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1881       1 WHAT HAPPENS TO ME IS MY OWN DOING - MUCH CLOSER
+     877       2 WHAT HAPPENS TO ME IS MY OWN DOING - SLIGHTLY CLOSER
+     523       3 DONT HAVE CONTROL OVER DIRECTION OF LIFE - SLIGHTLY CLOSER
+     316       4 DONT HAVE CONTROL OVER DIRECTION OF LIFE - MUCH CLOSER
+  -------
+    3597
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3597   VALID SKIP(-4)      98     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04927.00[Default]
+Default Next Question: R04931.00
+--------------------------------------------------------------------------------
+R04931.00    [49F]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT F, 76
+ 
+1) When I make plans, I am almost certain that I can make them work.
+2) It is not always wise to plan too far ahead, because many thing turn out to 
+be a matter of good or bad fortune anyhow.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1628       1 CAN MAKE PLANS WORK - MUCH CLOSER
+     887       2 CAN MAKE PLANS WORK - SLIGHTLY CLOSER
+     610       3 PLANS MATTER OF GOOD OR BAD FORTUNE - SLIGHTLY CLOSER
+     471       4 PLANS MATTER OF GOOD OR BAD FORTUNE - MUCH CLOSER
+  -------
+    3596
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3596   VALID SKIP(-4)      99     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04929.00[Default]
+Default Next Question: R04933.00
+--------------------------------------------------------------------------------
+R04933.00    [49G]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT G, 76
+ 
+1) In my case, getting what I want has little or nothing to do with luck. 2) 
+Many times we might just as well decide what to do by flipping a coin.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    1889       1 WHAT I WANT HAS NOTHING TO DO WITH LUCK - MUCH CLOSER
+    1248       2 WHAT I WANT HAS NOTHING TO DO WITH LUCK - SLIGHTLY CLOSER
+     329       3 DECIDE WHAT TO DO BY FLIPPING COIN - SLIGHTLY CLOSER
+     123       4 DECIDE WHAT TO DO BY FLIPPING COIN - MUCH CLOSER
+  -------
+    3589
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3589   VALID SKIP(-4)     106     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04931.00[Default]
+Default Next Question: R04935.00
+--------------------------------------------------------------------------------
+R04935.00    [49H]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT H, 76
+ 
+1) Who gets to be boss often depends on who was lucky enough to be in the right 
+place first. 2) Getting people to do the right thing depends upon ability; luck 
+has little or nothing to do with it.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+    2059       1 GETTING PEOPLE TO DO RIGHT THINGS DEPENDS ON ABILITY - MUCH 
+                      CLOSER
+     993       2 GETTING PEOPLE TO DO RIGHT THINGS DEPENDS ON ABILITY - SLIGHTLY
+                      CLOSER
+     336       3 WHO IS BOSS DEPENDS ON LUCK - SLIGHTLY CLOSER
+     206       4 WHO IS BOSS DEPENDS ON LUCK - MUCH CLOSER
+  -------
+    3594
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3594   VALID SKIP(-4)     101     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04933.00[Default]
+Default Next Question: R04937.00
+--------------------------------------------------------------------------------
+R04937.00    [49I]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT I, 76
+ 
+1) Most people don't realize the extent to which their lives are controlled by 
+accidental happenings.
+2) There really is no such thing as "luck."
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+     661       1 NO SUCH THING AS LUCK - MUCH CLOSER
+     785       2 NO SUCH THING AS LUCK - SLIGHTLY CLOSER
+    1535       3 PEOPLE DONT REALIZE LIVES ARE CONTROLLED - SLIGHTLY CLOSER
+     597       4 PEOPLE DONT REALIZE LIVES ARE CONTROLLED - MUCH CLOSER
+  -------
+    3578
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3578   VALID SKIP(-4)     117     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04935.00[Default]
+Default Next Question: R04939.00
+--------------------------------------------------------------------------------
+R04939.00    [49J]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT J, 76
+ 
+1) In the long run, the bad things that happen to us are balanced by the good 
+ones.
+2) Most misfortunes are the result of lack of ability, ignorance, laziness, or 
+all three.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+     945       1 MISFORTUNE RESULT OF LACK OF ABILITY - MUCH CLOSER
+     798       2 MISFORTUNE RESULT OF LACK OF ABILITY - SLIGHTLY CLOSER
+     999       3 BAD THINGS BALANCED BY GOOD ONES - SLIGHTLY CLOSER
+     838       4 BAD THINGS BALANCED BY GOOD ONES - MUCH CLOSER
+  -------
+    3580
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3580   VALID SKIP(-4)     115     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04937.00[Default]
+Default Next Question: R04941.00
+--------------------------------------------------------------------------------
+R04941.00    [49K]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             ROTTER SCALE - STATEMENT K, 76
+ 
+1) Many times I feel that I have little influence over the things that happen to
+me.
+2) It is impossible for me to believe that chance or luck plays an important 
+role in my life.
+NOTE: THE ATTITUDE SCALE ITEMS A THRU K WERE RECODED TO CONFORM WITH ROTTER 
+SCALE COMPONENTS AND THEREFORE THE DIRECTION OF THEIR CODES IS:
+1 = MOST INTERNAL
+2 = INTERNAL
+3 = EXTERNAL
+4 = MOST EXTERNAL
+ 
+     955       1 IMPOSSIBLE TO BELIEVE LUCK PLAYS ROLE - MUCH CLOSER
+    1313       2 IMPOSSIBLE TO BELIEVE LUCK PLAYS ROLE - SLIGHTLY CLOSER
+     916       3 I HAVE LITTLE INFLUENCE OVER THINGS THAT HAPPEN TO ME - 
+                      SLIGHTLY CLOSER
+     371       4 I HAVE LITTLE INFLUENCE OVER THINGS THAT HAPPEN TO ME - MUCH 
+                      CLOSER
+  -------
+    3555
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3555   VALID SKIP(-4)     140     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04939.00[Default]
+Default Next Question: R04943.00
+--------------------------------------------------------------------------------
+R04992.00    [56A]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             WAS ANY DISCRIMINATION EXPERIENCED AT WORK SINCE NOVEMBER 71? 76
+ 
+Since November, 1971, do you feel that, so far as work is concerned, you have 
+been in any way discriminated against because of race, religion, sex, age, 
+nationality, or for any other reason?
+ 
+     659       1 YES
+    3006       0 NO   (Go To R04994.00)
+  -------
+    3665
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3665   VALID SKIP(-4)      30     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R04991.00[Default]
+Default Next Question: R04993.00
+--------------------------------------------------------------------------------
+R05272.00    [69A]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             DID R RECEIVE FINANCIAL AID FROM RELATIVES IN PAST YEAR? 76
+ 
+In the past 12 months how many weeks did ... work either full- or part time (not
+counting work around the house)?
+ 
+     333       1 YES
+    3356       0 NO   (Go To R05275.00)
+  -------
+    3689
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3689   VALID SKIP(-4)       6     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R05218.00[Default]
+Default Next Question: R05273.00
+--------------------------------------------------------------------------------
+R05275.00    [70A]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             DOES R OWN OR RENT HIS HOUSE OR APARTMENT? 76
+ 
+Is this house (apartment) owned or being bought by you (or your wife)?
+ 
+    1806       1 YES
+    1880       0 NO   (Go To R05278.00)
+  -------
+    3686
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3686   VALID SKIP(-4)       9     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R05274.00[Default]  R05272.00[0:0]
+Default Next Question: R05276.00
+--------------------------------------------------------------------------------
+R05294.00    [73C]                                          Survey Year: 1976
+  PRIMARY VARIABLE
+
+ 
+             DOES R OWE MONEY ON ANY AUTOMOBILE? 76
+ 
+Do you owe any money on this (these) automobiles(s)?
+ 
+    1649       1 YES
+    1636       0 NO
+  -------
+    3285
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>    3285   VALID SKIP(-4)     410     NON-INTERVIEW(-5)    1530
+ 
+Lead In: R05293.00[Default]
+Default Next Question: R05295.00

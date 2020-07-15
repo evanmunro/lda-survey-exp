@@ -3,25 +3,9 @@ folders.
 
 The original sources of the data are as follows:
 
- - The raw DHS data can be downloaded from [DHS Program](https://dhsprogram.com/data/)
  - The Michigan data can be downloaded from the [Survey of Consumers SDA Archive](https://data.sca.isr.umich.edu/sda-public/cgi-bin/hsda?harcsda+sca)
  - The original Card dataset is available [here](http://davidcard.berkeley.edu/data_sets.html). The additional variables are available from the [NLS](https://www.nlsinfo.org/investigator/pages/login.jsp).
 
- We do not yet have permission to share the DHS data in cleaned form, so it is not currently available in this repository.
-
-### DHS Data
-
-The data contains 3 categorical variables:
-1. `water_qual`, rated from 1 to 4
-2. `toilet_qual`, rated from 1 to 5
-3. `floor_qual`, rated from 1 to 3
-
-It also contains 7 binary variables, where a value of 2 indicates ownership and
-1 indicates lack of ownership: `electric`, `radio`, `tv`, `fridge`, `motorbike`, `car`
-and `phone`.
-
-The group indicator for the individual respondents is their country `cname`.
-The countries are: Colombia (CO), Guyana (GT), Haiti (HT), Nicaragua (NI), and Peru (PE).
 
 ### Michigan Survey of Consumers Data
 
@@ -32,8 +16,7 @@ PAGO, PEXP, RINC, BAGO, BEXP, BUS12, BUS5, UNEMP, GOVT, RATEX, PX1Q1, DUR, HOM, 
 ```
 Each question and the raw responses are described in detail in `michigan/codebook.txt`
 
-The group indicator is `YYYYMM`, the month of that the individual responded to the survey,
-and the variable `EDUC` which is described in the codebook as well.'
+The group indicator is `YYYYMM`, the month of that the individual responded to the survey.
 
 The `michigan` folder also contains some CSV files which are used to analyze the Michigan data further:
 - Economic policy uncertainty index : `epu.csv`, Source: Baker, Bloom and Davis website
@@ -44,7 +27,7 @@ The `michigan` folder also contains some CSV files which are used to analyze the
 ### NLSYM Data
 
 The dataset contains the following variables from Card's original analysis,
-which are described in `codebook_card.txt` and were downloaded from this [link]().
+which are described in `codebook_card.txt` and were downloaded from this [webpage](https://davidcard.berkeley.edu/data_sets.html).
 ```
 ID, LWAGE76, BLACK,  EXP76, EXP762, SMSA76R, REG76R, ED76,
 DADED, MOMED, NODADED, NOMOMED, LIBCRD14, SINMOM14

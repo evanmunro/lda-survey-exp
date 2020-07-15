@@ -1,24 +1,24 @@
 library(dhlvm)
-source("utils.R")
-re_estimate=T
+
 # from the SDA Codebook
-na.codes <- c(0,8,9,98,99)
-vars <- c("PAGO", "PEXP","RINC","BAGO","BEXP","BUS12","BUS5","UNEMP","GOVT", "RATEX","PX1Q1","DUR","HOM","CAR")
+na.codes <- c(0, 8, 9, 98, 99)
+vars <- c("PAGO", "PEXP", "RINC", "BAGO", "BEXP", "BUS12", "BUS5", "UNEMP",
+          "GOVT", "RATEX", "PX1Q1", "DUR", "HOM", "CAR")
 
 data <- read.csv("data/michigan/mich_raw.csv")
 
 #check which variables are not available in the first year:
-data.input <- clean_data(data,na.codes)
+data.input <- clean_data(data, na.codes)
 group.input <- as.numeric(factor(data$YYYYMM))
-data.input <- data.input[,vars]
+data.input <- data.input[, vars]
 
-#forecast the contents of a new document 
+#forecast the contents of a new document
 
-#checkSparsity(data.input)
+checkSparsity(data.input)
 
-N= nrow(data.input)
-J=ncol(data.input)
-L = apply(data.input,MARGIN=2,FUN=function(x) return(length(unique(x))))
+N = nrow(data.input)
+J = ncol(data.input)
+L = apply(data.input, MARGIN=2, FUN=function(x) return(length(unique(x))))
 
 
 K=4
@@ -32,66 +32,25 @@ for(j in 1:J) {
     }
   }
 }
-if (re_estimate) {
-  print("starting")
-  set.seed(1)
-  v0=10
-  s0=1
-  steps = 3000
-  burn = 1000
-  skip = 10
-  tune=0.01
 
-  posterior = dhlcModel(data.input,group.input,eta,v0,s0,tune,K,steps,burn,skip)
-  post.ev <- posteriorMeans(posterior)
-  save(post.ev,file="posteriors/mich_estimate_fh.RData")
+print("starting")
+set.seed(1)
+v0=10
+s0=1
+steps = 3000
+burn = 1000
+skip = 10
+tune=0.01
 
-} else {
-  load("posteriors/mich_estimate.RData")
-
-}
+posterior = dhlcModel(data.input, group.input, eta, v0, s0, tune, K, steps, burn, skip)
+post.ev <- posteriorMeans(posterior)
+save(post.ev, file="posteriors/mich_estimate.RData")
 
 #check BIC
-print(bic(data.input,group.input,post.ev$pi,post.ev$beta,dynamic=T))
+print(bic(data.input, group.input, post.ev$pi, post.ev$beta, dynamic=T))
 
-plotBetas(post.ev$beta,path="figures/", questions=colnames(data.input))
-
-# check eigen values of Y
-Y <-xtoAdjacency(data.input,group.input)
-
-
-dates <- paste(unique(data$YYYYMM),"01",sep="")
-dates <- as.Date(dates,"%Y%m%d")
-umcsent <- read.csv("data/michigan/UMCSENT.csv")
-umcsent <- (umcsent$UMCSENT - min(umcsent$UMCSENT))/(max(umcsent$UMCSENT)- min(umcsent$UMCSENT))*max(post.ev$pi[,1])
-data.plot1 <- data.frame(dates = dates,index_1=post.ev$pi[,1],ics =umcsent )
-
-
-#second figure for pi
-unrate <- read.csv("data/michigan/UNRATE.csv")
-epu <- read.csv("data/michigan/epu.csv")
-epu <- epu$epu
-pi3.short <- post.ev$pi[1:length(epu),3]
-pi4.short <- post.ev$pi[1:length(epu),4]
-dates.short <- dates[1:length(epu)]
-unrate <- unrate$UNRATE[1:length(epu)]
-unrate <- 0.6*(unrate - min(unrate))/(max(unrate)- min(unrate))
-epu <- (epu - mean(epu))/sd(epu)*sd(pi4.short)+mean(pi4.short)
-data.plot2 <- data.frame(dates=dates.short,index_4 = pi4.short,epu=epu)
-data.plot3 <- data.frame(dates=dates.short,index_3 = pi3.short,unemp=unrate)
-#Figures for Figure 3
-plotPis(data.plot1,T,path="figures/mich1_")
-plotPis(data.plot2,T,path="figures/mich4_")
-plotPis(data.plot3,T,path="figures/mich3_")
-
-
-## Out of Sample Exercises 
-
-#steps = 360:378 
-
-#then calculate mean posterior likelihood for samples from
-# vs naive static model (samples from Dirichlet) 
-
+# can be used to check eigen values of Y
+Y <-xtoAdjacency(data.input, group.input)
 
 
 #K_2: 28

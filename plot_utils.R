@@ -9,7 +9,7 @@ library(ggplot2)
 #' @param path location to save plots
 #'
 #' @return Saves plots of beta for each question to path
-plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
+plotBetas <- function(betas,response_codes=NULL, questions=NULL, path="") {
   library(ggplot2)
   J = length(betas)
   K = nrow(betas[[1]])
@@ -17,7 +17,7 @@ plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
     questions = 1:J
   }
   for (j in 1:J) {
-    print(betas[[j]])
+    #print(betas[[j]])
     beta_mat = t(betas[[j]])
 
     L_j = nrow(beta_mat)
@@ -35,7 +35,7 @@ plotBetas <- function(betas,response_codes=NULL,questions=NULL,path="") {
       }
     }
     if(!is.null(questions)) {
-      title = paste("QS_",questions[j],sep="")
+      title = paste("beta_",questions[j],sep="")
     }
     beta_df$response = factor(x)
     data_long = reshape2::melt(beta_df,id.vars=c("response"))
