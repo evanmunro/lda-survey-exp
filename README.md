@@ -26,7 +26,7 @@ cd lda-survey-exp
 
 ```
 
-2. Install the R package written for the models in the paper [dhlvm](www.github.com/evanmunro/dhlvm) from Github using the R package `devtools`:
+2. Install the R package written for the models in the paper [dhlvm](http://github.com/evanmunro/dhlvm) from Github using the R package `devtools`:
 
 ```
 devtools::install_github("evanmunro/dhlvm")
